@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#376b52">
+  <meta name="description" content="Deine Pfotenstube – das Godot-Haustierspiel direkt im Browser.">
+  <title>$GODOT_PROJECT_NAME</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; background: #f6f8ef; color: #35473d; font-family: system-ui, sans-serif; overflow: hidden; }
+    #canvas { display: block; width: 100%; height: 100%; border: 0; outline: none; touch-action: none; }
+    #loading { position: fixed; inset: 0; display: grid; place-content: center; text-align: center; background: #f6f8ef; padding: 24px; }
+    #loading[hidden] { display: none; }
+    h1 { color: #376b52; font-size: clamp(30px, 6vw, 48px); margin: 0 0 10px; }
+    p { max-width: 520px; line-height: 1.5; margin: 10px auto; }
+    progress { width: min(360px, 80vw); height: 16px; accent-color: #376b52; margin: 14px auto; }
+    button { font: inherit; color: white; background: #376b52; border: 0; border-radius: 10px; padding: 12px 20px; cursor: pointer; }
+    a { color: #376b52; }
+    small { display: block; margin-top: 28px; color: #687a6b; }
+    dialog { color: #35473d; background: #fffef8; border: 1px solid #b8c9b5; border-radius: 16px; padding: 24px; max-width: min(520px, 95vw); }
+    dialog::backdrop { background: #243d2c55; }
+    dialog h2 { margin-top: 0; }
+    dialog input { display: block; max-width: 100%; padding: 18px 0; font: inherit; }
+  </style>
+  $GODOT_HEAD_INCLUDE
+</head>
+<body>
+  <canvas id="canvas" tabindex="0" aria-label="Pfotenstube – Haustierspiel">Bitte verwende einen aktuellen Browser.</canvas>
+  <section id="loading" aria-live="polite">
+    <h1>pfotenstube</h1>
+    <p id="message">Deine kleinen Lieblinge machen es sich gemütlich …</p>
+    <progress id="progress" aria-label="Spiel wird geladen"></progress>
+    <p>Dein Fortschritt wird in diesem Browser gespeichert.<br>Neue Spielversionen bekommst du durch Neuladen.</p>
+    <button id="retry" hidden>Erneut versuchen</button>
+    <small>Mit Godot · <a href="Godot-LICENSE.txt" target="_blank" rel="noopener">Engine-Lizenz</a> · <a href="Godot-COPYRIGHT.txt" target="_blank" rel="noopener">Weitere Lizenzen</a> · <a href="DejaVu-LICENSE.txt" target="_blank" rel="noopener">Schrift-Lizenz</a></small>
+  </section>
+  <noscript>Zum Spielen muss JavaScript eingeschaltet sein.</noscript>
+  <script src="$GODOT_URL"></script>
+  <script>
+    // File selection stays local to this browser. Nothing is uploaded.
+    window.pfotenstubeFiles = {
+      chooseSave(callback) {
+        // A native HTML input gets its own user gesture, including in browsers
+        // that disallow opening a file picker from a game animation frame.
+        const picker = document.createElement('dialog');
+        picker.innerHTML = '<h2>Spielstand importieren</h2><label>Wähle deine Pfotenstube-Sicherung (.json).<input type="file" accept=".json,application/json"></label><button type="button">Abbrechen</button>';
+        document.body.appendChild(picker);
+        const input = picker.querySelector('input');
+        const close = () => {
+          picker.close();
+          picker.remove();
+          document.getElementById('canvas').focus();
+        };
+        input.addEventListener('change', async () => {
+          try {
+            const file = input.files[0];
+            if (!file) return;
+            if (file.size > 200000) {
+              callback('', 'Die Spielstand-Datei ist zu groß.');
+              return;
+            }
+            callback(await file.text(), '');
+          } catch {
+            callback('', 'Die Spielstand-Datei konnte nicht gelesen werden.');
+          } finally {
+            close();
+          }
+        }, { once: true });
+        picker.querySelector('button').addEventListener('click', close);
+        picker.addEventListener('cancel', close, { once: true });
+        picker.showModal();
+      }
+    };
+
+    const config = $GODOT_CONFIG;
+    const engine = new Engine(config);
+    const overlay = document.getElementById('loading');
+    const progress = document.getElementById('progress');
+    const message = document.getElementById('message');
+    const retry = document.getElementById('retry');
+    retry.addEventListener('click', () => location.reload());
+
+    function fail(error) {
+      console.error(error);
+      message.textContent = 'Das Spiel konnte nicht starten. Bitte versuche es mit einem aktuellen Chrome, Edge oder Firefox und aktiver Hardwarebeschleunigung.';
+      progress.hidden = true;
+      retry.hidden = false;
+    }
+
+    const missing = Engine.getMissingFeatures({ threads: $GODOT_THREADS_ENABLED });
+    if (missing.length) {
+      fail(new Error(missing.join(', ')));
+    } else {
+      engine.startGame({
+        canvas: document.getElementById('canvas'),
+        onProgress(current, total) {
+          if (total > 0) {
+            progress.max = total;
+            progress.value = current;
+          }
+        },
+        onExit(code) {
+          if (code !== 0) {
+            overlay.hidden = false;
+            fail(new Error('Spiel beendet: ' + code));
+          }
+        }
+      }).then(() => {
+        overlay.hidden = true;
+        document.getElementById('canvas').focus();
+        document.documentElement.dataset.gameReady = 'true';
+      }).catch(fail);
+    }
+  </script>
+</body>
+</html>

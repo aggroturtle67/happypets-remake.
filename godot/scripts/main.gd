@@ -30,6 +30,7 @@ var toast_label: Label
 var toast_timer: Timer
 var active_popup: PopupPanel
 var can_save := true
+var web_import_callback: JavaScriptObject
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
@@ -59,6 +60,9 @@ func _notification(what: int) -> void:
 
 func _build_theme() -> void:
 	theme = Theme.new()
+	var font: Font = ThemeDB.fallback_font.duplicate()
+	font.fallbacks = [preload("res://assets/fonts/DejaVuSans.ttf")]
+	theme.default_font = font
 	theme.default_font_size = 15
 	theme.set_color("font_color", "Label", INK)
 	theme.set_color("font_color", "Button", GREEN)
@@ -69,6 +73,7 @@ func _build_theme() -> void:
 	theme.set_stylebox("disabled", "Button", _style(Color("eeefe5"), 9))
 	theme.set_stylebox("focus", "Button", _style(Color(0, 0, 0, 0), 9, Color("9fb88c"), 2))
 	theme.set_stylebox("panel", "PopupPanel", _style(PAPER, 16, Color("dce3cf")))
+	theme.set_stylebox("panel", "AcceptDialog", _style(PAPER, 12, Color("dce3cf")))
 	theme.set_stylebox("normal", "LineEdit", _style(Color("fbfcf3"), 8, Color("bcccaa")))
 	theme.set_color("font_color", "LineEdit", INK)
 	theme.set_color("caret_color", "LineEdit", GREEN)
@@ -134,7 +139,10 @@ func _card(color: Color = PAPER, padding: int = 16) -> PanelContainer:
 
 func _picture(art: String, minimum: Vector2) -> TextureRect:
 	var picture := TextureRect.new()
-	picture.texture = _art_texture(art)
+	if art == "litter":
+		picture.draw.connect(func(): Room.draw_litter(picture, Rect2(Vector2(0, picture.size.y * 0.35), Vector2(picture.size.x, picture.size.x * 0.32))))
+	else:
+		picture.texture = _art_texture(art)
 	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	picture.custom_minimum_size = minimum
@@ -437,7 +445,10 @@ func _persist() -> bool:
 		save_label.text = "Speichern gesperrt: beschädigten Spielstand zuerst sichern."
 		return false
 	var ok := game.save_game()
-	save_label.text = "✓  Spielstand auf diesem PC gespeichert" if ok else "!  " + game.last_error
+	var location := "in diesem Browser" if OS.has_feature("web") else "auf diesem PC"
+	save_label.text = "✓  Spielstand " + location + " gespeichert" if ok else "!  " + game.last_error
+	if ok and OS.has_feature("web"):
+		JavaScriptBridge.force_fs_sync()
 	return ok
 
 func _apply(result: Dictionary) -> bool:
@@ -613,14 +624,29 @@ func show_help() -> void:
 	var box := _popup("Willkommen in der Pfotenstube.", Vector2i(730, 620))
 	var text := _label("Wähle ein Tier aus und kümmere dich um seine Bedürfnisse.\nEin Klick im Zimmer ist eine Streicheleinheit.\n\nFutter kostet 8 Münzen. Spielen bringt 12, Pflegen 10 Münzen.\nBereits gut versorgte Tiere geben keine weiteren Belohnungen.\nJe 100 XP steigt dein Level; ab Level 2 ziehen Kaninchen ein.\n\nIm Einrichtungsmodus kannst du Möbel mit der Maus ziehen.\nPfeiltasten: verschieben · R: drehen · Entf: einlagern.\n\nBedürfnisse sinken langsam, auch während einer Pause\n(höchstens acht Stunden). Deine Tiere können nicht sterben.\nEs gibt keine Käufe mit echtem Geld.\n\nDein Fortschritt wird automatisch auf diesem PC gespeichert.\nExportiere eine Sicherung, bevor du das Gerät wechselst.", 15, MUTED)
 	box.add_child(text)
+	if OS.has_feature("web"):
+		text.text = text.text.replace("auf diesem PC", "in diesem Browser")
 	var actions := _hbox(10)
 	box.add_child(actions)
 	actions.add_child(_button("Spielstand exportieren", func(): _file_dialog(false)))
 	actions.add_child(_button("Spielstand importieren", func(): _file_dialog(true)))
-	box.add_child(_button("Spielstand-Ordner öffnen", func(): OS.shell_open(ProjectSettings.globalize_path("user://"))))
+	if not OS.has_feature("web"):
+		box.add_child(_button("Spielstand-Ordner öffnen", func(): OS.shell_open(ProjectSettings.globalize_path("user://"))))
+	else:
+		box.add_child(_label("Dein Fortschritt bleibt bei Updates erhalten.\nBeim Löschen der Browserdaten wird er entfernt. Sichere ihn vorher mit Exportieren.", 12, MUTED))
 	box.add_child(_label("Ein eigenständiges Haustierspiel. Ohne Facebook-Verbindung.", 11, MUTED))
 
 func _file_dialog(importing: bool) -> void:
+	if OS.has_feature("web"):
+		if importing:
+			if web_import_callback == null:
+				web_import_callback = JavaScriptBridge.create_callback(_on_web_import)
+			var bridge := JavaScriptBridge.get_interface("pfotenstubeFiles")
+			bridge.chooseSave(web_import_callback)
+		else:
+			JavaScriptBridge.download_buffer(JSON.stringify(game.data, "\t").to_utf8_buffer(), "pfotenstube-spielstand.json", "application/json")
+			notify("Spielstand als Datei heruntergeladen.")
+		return
 	var dialog := FileDialog.new()
 	dialog.title = "Spielstand importieren" if importing else "Spielstand exportieren"
 	dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE if importing else FileDialog.FILE_MODE_SAVE_FILE
@@ -645,11 +671,29 @@ func _import_save(path: String) -> void:
 		return
 	var parsed: Variant = game.parse_json(file.get_as_text())
 	file.close()
+	_confirm_import(parsed)
+
+func _on_web_import(args: Array) -> void:
+	if args.is_empty():
+		return
+	if args.size() > 1 and not str(args[1]).is_empty():
+		notify(str(args[1]))
+		return
+	var raw := str(args[0])
+	if raw.to_utf8_buffer().size() > 200000:
+		notify("Die Spielstand-Datei ist zu groß.")
+		return
+	_confirm_import(game.parse_json(raw))
+
+func _confirm_import(parsed: Variant) -> void:
 	if not game.validate_save(parsed):
 		notify("Diese Datei enthält keinen gültigen Pfotenstube-Spielstand.")
 		return
 	var confirmation := ConfirmationDialog.new()
+	confirmation.theme = theme
 	confirmation.title = "Spielstand ersetzen?"
+	confirmation.ok_button_text = "Übernehmen"
+	confirmation.cancel_button_text = "Abbrechen"
 	confirmation.dialog_text = "Den aktuellen Fortschritt durch diese Sicherung ersetzen?\nDer aktuelle Stand wird vorher gesichert."
 	add_child(confirmation)
 	confirmation.confirmed.connect(func():

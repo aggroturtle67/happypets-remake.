@@ -4,6 +4,8 @@ Ein eigenständiges 2D-Haustierspiel in **Godot 4.6.3**, mit GDScript und dem Co
 
 ## Sofort auf Windows spielen
 
+Zum regelmäßigen Testen gibt es jetzt die [Browser-Version](https://aggroturtle67.github.io/happypets-remake./). Nach der einmaligen [GitHub-Pages-Einrichtung](../docs/BROWSER-SPIELEN.md) genügt Neuladen für neue Spielversionen. Die Windows-Version bleibt zusätzlich verfügbar.
+
 1. `Pfotenstube-Windows-x64.zip` herunterladen.
 2. Rechtsklick auf das ZIP → **Alle extrahieren**.
 3. Im entpackten Ordner **Pfotenstube.exe** doppelklicken.
@@ -65,4 +67,6 @@ Mit `--script tests/capture_cat.gd` werden zusätzlich der Weg zum Napf, das Fre
 - `assets/`: SVG-Grafiken und freigestellte Katzen-Körperteile, ohne React zur Laufzeit.
 - `tests/run_tests.gd`: Spielregeln, Dateien und Szeneninteraktionen.
 - `export_presets.cfg`: Windows-x64-Export und Linux-Kontrollbuild.
+- `web/shell.html`: Browser-Startseite und lokale Auswahl einer Spielstandsdatei.
+- Web-Export: ohne Threads oder Service Worker, mit dauerhaftem Browser-Spielstand und versionierten Programmdateien.
 - `licenses/`: Lizenzhinweise der mitgelieferten Godot-Engine.

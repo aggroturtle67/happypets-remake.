@@ -189,7 +189,7 @@ func _draw() -> void:
 		draw_polyline(ring, Color("fff8dd"), 2.0, true)
 	if not is_cat and body_texture != null:
 		draw_texture_rect(body_texture, Rect2(0, sin(elapsed * 2.2), size.x, size.y - 24), false)
-	var font := ThemeDB.fallback_font
+	var font := get_theme_default_font()
 	var name_text: String = str(pet.get("name", "")) + ("  ♥" if selected else "")
 	var name_width := font.get_string_size(name_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x
 	var tag := Rect2((size.x - name_width - 16) * 0.5, size.y - 19, name_width + 16, 21)

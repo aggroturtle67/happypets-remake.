@@ -148,7 +148,7 @@ func _draw() -> void:
 		var rect := item_rect(item)
 		var tex: Texture2D = textures.get(item.kind)
 		if item.kind == "litter":
-			_draw_litter(rect)
+			draw_litter(self, rect)
 		elif item.flipped:
 			draw_texture_rect(tex, Rect2(rect.position + Vector2(rect.size.x, 0), Vector2(-rect.size.x, rect.size.y)), false)
 		else:
@@ -160,17 +160,17 @@ func _draw() -> void:
 	var width := font.get_string_size(message, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x
 	draw_string(font, Vector2((size.x - width) / 2.0, size.y - 14), message, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("89785a"))
 
-func _draw_litter(rect: Rect2) -> void:
+static func draw_litter(canvas: CanvasItem, rect: Rect2) -> void:
 	var tray := StyleBoxFlat.new()
 	tray.bg_color = Color("b8c9c1")
 	tray.border_color = Color("829d90")
 	tray.set_border_width_all(3)
 	tray.set_corner_radius_all(9)
-	draw_style_box(tray, rect)
+	canvas.draw_style_box(tray, rect)
 	var sand := StyleBoxFlat.new()
 	sand.bg_color = Color("e6dcc5")
 	sand.set_corner_radius_all(6)
-	draw_style_box(sand, Rect2(rect.position + Vector2(6, 4), rect.size - Vector2(12, 15)))
+	canvas.draw_style_box(sand, Rect2(rect.position + Vector2(6, 4), rect.size - Vector2(12, 15)))
 
 func _gui_input(event: InputEvent) -> void:
 	if not editing or game == null:
