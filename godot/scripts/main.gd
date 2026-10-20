@@ -134,15 +134,20 @@ func _card(color: Color = PAPER, padding: int = 16) -> PanelContainer:
 
 func _picture(art: String, minimum: Vector2) -> TextureRect:
 	var picture := TextureRect.new()
-	picture.texture = load(_art_resource(art))
+	picture.texture = _art_texture(art)
 	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	picture.custom_minimum_size = minimum
 	picture.mouse_filter = MOUSE_FILTER_IGNORE
 	return picture
 
-func _art_resource(art: String) -> String:
-	return "res://assets/cat_portrait.png" if art == "cat" else "res://assets/" + art + ".svg"
+func _art_texture(art: String) -> Texture2D:
+	if art == "cat":
+		var portrait := AtlasTexture.new()
+		portrait.atlas = CatRig.ATLAS
+		portrait.region = CatRig.REGIONS.head
+		return portrait
+	return load("res://assets/" + art + ".svg")
 
 func _build_ui() -> void:
 	var margin := MarginContainer.new()
@@ -360,7 +365,7 @@ func _refresh() -> void:
 	var pet := game.selected_pet()
 	name_label.text = str(pet.name) + "  ♥"
 	species_label.text = str(State.SPECIES[pet.species]) + " · Fühlt sich bei dir zu Hause"
-	pet_picture.texture = load(_art_resource(str(pet.art)))
+	pet_picture.texture = _art_texture(str(pet.art))
 	for key in ["hunger", "joy", "clean"]:
 		need_bars[key].value = float(pet[key])
 		need_values[key].text = str(roundi(float(pet[key]))) + " / 100"
@@ -443,6 +448,10 @@ func _apply(result: Dictionary) -> bool:
 	return bool(result.ok)
 
 func _do_care(action: String, pet_id: String = "") -> void:
+	var chosen := pet_id if not pet_id.is_empty() else str(game.data.selected)
+	if action == "feed" and not room.can_feed(chosen):
+		notify("Stelle zuerst einen freien Futternapf auf. Du findest ihn im Möbellager oder unter Einrichtung.")
+		return
 	var result := game.care(action, pet_id)
 	if _apply(result):
 		var messages := {"feed": "Mmmh! ♥", "play": "Juhuu! ✦", "clean": "Blitzblank!", "pet": "Hab dich lieb! ♥"}

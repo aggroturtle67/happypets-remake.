@@ -33,6 +33,8 @@ SPIELEN
 - Waehle Momo oder Milo aus und fuettere, bespiele oder pflege dein Tier.
 - Momo laeuft durch das Zimmer und reagiert mit Rennen, Springen,
   Sitzen, Putzen, Schlafen, Fressen, Trinken und Katzenklo-Animationen.
+- Zum Fressen und Trinken laeuft sie an die aufgestellten Naepfe.
+  Ein Katzenklo fuer vorhandene Spielstaende gibt es unter Einrichtung.
 - Ein Klick auf das Tier im Zimmer streichelt es.
 - Im Laden kannst du Tiere adoptieren und Moebel kaufen.
 - Unter 'Einrichten' Moebel ziehen oder per Pfeiltasten bewegen.

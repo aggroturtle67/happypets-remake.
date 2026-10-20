@@ -17,7 +17,8 @@ const DECOR := [
 	{"kind": "bowl", "name": "Futternäpfe", "price": 25},
 	{"kind": "cushion", "name": "Wolkenkissen", "price": 40},
 	{"kind": "lamp", "name": "Leselämpchen", "price": 55},
-	{"kind": "toys", "name": "Spielzeugkiste", "price": 45}
+	{"kind": "toys", "name": "Spielzeugkiste", "price": 45},
+	{"kind": "litter", "name": "Katzenklo", "price": 30}
 ]
 const QUESTS := [
 	{"id": "feed", "title": "Ein voller Bauch", "reward": 30},
@@ -54,7 +55,8 @@ func reset(now: float = -1.0) -> void:
 			{"id": "plant-start", "kind": "plant", "x": 89.0, "y": 63.0, "placed": true, "flipped": false},
 			{"id": "scratch-start", "kind": "scratch", "x": 72.0, "y": 62.0, "placed": true, "flipped": false},
 			{"id": "bowl-start", "kind": "bowl", "x": 20.0, "y": 89.0, "placed": true, "flipped": false},
-			{"id": "toys-start", "kind": "toys", "x": 84.0, "y": 87.0, "placed": true, "flipped": false}
+			{"id": "toys-start", "kind": "toys", "x": 84.0, "y": 87.0, "placed": true, "flipped": false},
+			{"id": "litter-start", "kind": "litter", "x": 79.0, "y": 91.0, "placed": true, "flipped": false}
 		]
 	}
 
@@ -222,7 +224,7 @@ func validate_save(value: Variant) -> bool:
 		for key in ["id", "kind", "x", "y", "placed", "flipped"]:
 			if not item.has(key):
 				return false
-		if not item.id is String or item.id.is_empty() or item.id in decor_ids or not item.kind in ["bed", "plant", "scratch", "rug", "bowl", "cushion", "lamp", "toys"] or not item.placed is bool or not item.flipped is bool:
+		if not item.id is String or item.id.is_empty() or item.id in decor_ids or not item.kind in ["bed", "plant", "scratch", "rug", "bowl", "cushion", "lamp", "toys", "litter"] or not item.placed is bool or not item.flipped is bool:
 			return false
 		decor_ids.append(item.id)
 		if not valid_number(item.x, 8, 92) or not valid_number(item.y, 54, 91):

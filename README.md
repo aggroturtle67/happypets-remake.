@@ -4,7 +4,7 @@ Ein gemütliches 2D-Haustierspiel, inspiriert vom damaligen Happy Pets. **Die ak
 
 ## Auf deinem Windows-PC testen
 
-1. [Pfotenstube-Windows-x64.zip](exports/Pfotenstube-Windows-x64.zip) herunterladen.
+1. [Pfotenstube für Windows herunterladen](https://github.com/aggroturtle67/happypets-remake./raw/refs/heads/downloads/Pfotenstube-Windows.zip).
 2. Rechtsklick auf das ZIP → **Alle extrahieren**.
 3. Im entpackten Ordner **Pfotenstube.exe** doppelklicken.
 
@@ -14,7 +14,7 @@ Du brauchst keinen Godot-Editor, kein Node.js und kein Konto. Enthalten sind Pfl
 
 ## Mit Godot weiterarbeiten
 
-Im Godot-Projektmanager [godot/project.godot](godot/project.godot) importieren und **F5** drücken. Alternativ das [Godot-Projektpaket](exports/Pfotenstube-Godot-Projekt.zip) entpacken und darin `project.godot` importieren.
+Im Godot-Projektmanager [godot/project.godot](godot/project.godot) importieren und **F5** drücken. Alternativ den [Quellcode als ZIP](https://github.com/aggroturtle67/happypets-remake./archive/refs/heads/main.zip) herunterladen, entpacken und darin `godot/project.godot` importieren.
 
 Die [Godot-Anleitung](godot/README.md) beschreibt Bedienung, Speicherort und Prüfungen. Die Cloud-Einrichtung wird mit `bash tools/setup-godot.sh` wiederholt; daraus entstehen auch die beiden ZIP-Pakete unter `exports/`.
 

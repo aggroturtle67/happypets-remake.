@@ -21,7 +21,8 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	resized.connect(refresh)
 	for item in PetGameState.DECOR:
-		textures[item.kind] = load("res://assets/" + str(item.kind) + ".svg")
+		if item.kind != "litter":
+			textures[item.kind] = load("res://assets/" + str(item.kind) + ".svg")
 
 func refresh() -> void:
 	if game == null or not is_inside_tree():
@@ -54,13 +55,61 @@ func set_editing(value: bool) -> void:
 	refresh()
 
 func item_rect(item: Dictionary) -> Rect2:
-	var widths := {"rug": 0.39, "bed": 0.19, "plant": 0.17, "scratch": 0.18, "bowl": 0.16, "cushion": 0.18, "lamp": 0.18, "toys": 0.14}
+	var widths := {"rug": 0.39, "bed": 0.19, "plant": 0.17, "scratch": 0.18, "bowl": 0.16, "cushion": 0.18, "lamp": 0.18, "toys": 0.14, "litter": 0.19}
 	var width := size.x * float(widths[item.kind])
 	var texture: Texture2D = textures.get(item.kind)
 	var height := width * float(texture.get_height()) / float(texture.get_width()) if texture else width
+	if item.kind == "litter":
+		height = width * 0.32
 	if item.kind == "rug":
 		height *= minf(1.0, size.y * 1.6129 / size.x)
 	return Rect2(Vector2(float(item.x) / 100.0, float(item.y) / 100.0) * size - Vector2(width / 2.0, height), Vector2(width, height))
+
+func find_station(actor: RoomPet, action: String) -> Dictionary:
+	var nearest: Dictionary = {}
+	var distance := INF
+	if game == null:
+		return nearest
+	for item in game.data.furniture:
+		var candidate := station_target(actor, str(item.id), action)
+		if candidate.is_empty():
+			continue
+		var occupied := false
+		for other in actors.values():
+			if other != actor and other.station_id == item.id:
+				occupied = true
+		if occupied:
+			continue
+		var next_distance := actor.foot.distance_squared_to(candidate.foot)
+		if next_distance < distance:
+			distance = next_distance
+			nearest = candidate
+	return nearest
+
+func station_target(actor: RoomPet, id: String, action: String) -> Dictionary:
+	if game == null or size.x <= 0 or size.y <= 0:
+		return {}
+	var kind := "litter" if action == "litter" else "bowl"
+	for item in game.data.furniture:
+		if item.id != id or not item.placed or item.kind != kind:
+			continue
+		var rect := item_rect(item)
+		if action == "litter":
+			var foot_point := Vector2(clampf(rect.get_center().x, size.x * 0.12, size.x * 0.88), rect.end.y - rect.size.y * 0.25)
+			return {"id": id, "foot": foot_point / size, "facing_right": rect.get_center().x > size.x * 0.5}
+		# Real food/water positions in bowl.svg; account for furniture mirroring.
+		var local_x := 117.0 if action == "drink" else 42.0
+		if item.flipped:
+			local_x = 160.0 - local_x
+		var rim := rect.position + rect.size * Vector2(local_x / 160.0, 117.0 / 160.0)
+		var right := rim.x > size.x * 0.5
+		var muzzle := CatRig.BOWL_MOUTH * actor.cat_scale()
+		var foot_point := rim - Vector2(muzzle.x if right else -muzzle.x, muzzle.y)
+		return {"id": id, "foot": foot_point / size, "facing_right": right, "rim": rim}
+	return {}
+
+func can_feed(id: String) -> bool:
+	return actors.has(id) and not find_station(actors[id], "eat").is_empty()
 
 func _sorted_furniture() -> Array:
 	var items: Array = []
@@ -98,7 +147,9 @@ func _draw() -> void:
 	for item in _sorted_furniture():
 		var rect := item_rect(item)
 		var tex: Texture2D = textures.get(item.kind)
-		if item.flipped:
+		if item.kind == "litter":
+			_draw_litter(rect)
+		elif item.flipped:
 			draw_texture_rect(tex, Rect2(rect.position + Vector2(rect.size.x, 0), Vector2(-rect.size.x, rect.size.y)), false)
 		else:
 			draw_texture_rect(tex, rect, false)
@@ -108,6 +159,18 @@ func _draw() -> void:
 	var message := "Möbel ziehen · Pfeiltasten: verschieben · R: drehen · Entf: einlagern" if editing else "Klicke ein Tier zum Streicheln."
 	var width := font.get_string_size(message, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x
 	draw_string(font, Vector2((size.x - width) / 2.0, size.y - 14), message, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("89785a"))
+
+func _draw_litter(rect: Rect2) -> void:
+	var tray := StyleBoxFlat.new()
+	tray.bg_color = Color("b8c9c1")
+	tray.border_color = Color("829d90")
+	tray.set_border_width_all(3)
+	tray.set_corner_radius_all(9)
+	draw_style_box(tray, rect)
+	var sand := StyleBoxFlat.new()
+	sand.bg_color = Color("e6dcc5")
+	sand.set_corner_radius_all(6)
+	draw_style_box(sand, Rect2(rect.position + Vector2(6, 4), rect.size - Vector2(12, 15)))
 
 func _gui_input(event: InputEvent) -> void:
 	if not editing or game == null:

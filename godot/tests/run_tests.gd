@@ -136,7 +136,78 @@ func _test_scene() -> void:
 	check(main.room.actors.size() == 2 and main.need_bars.hunger.value == 62, "main scene loads real pet actors and need displays")
 	main.buttons.feed.pressed.emit()
 	check(main.game.data.coins == 272 and main.need_bars.hunger.value == 97, "native Feed button updates game state and visible progress")
-	check(main.room.actors["momo"].current_animation == "eat" and main.room.actors["momo"].action_time > 0, "feeding starts the cat bowl animation")
+	var cat: RoomPet = main.room.actors["momo"]
+	cat.set_process(false)
+	check(cat.current_animation == "walk" and cat.pending_action == "eat" and cat.station_id == "bowl-start", "feeding first walks to the existing bowl")
+	var before := cat.foot
+	cat.advance(1.0 / 60.0)
+	check(cat.foot.distance_to(before) < 0.002 and cat.foot != before, "bowl approach moves gradually without teleporting")
+	for i in range(600):
+		if cat.current_animation == "eat":
+			break
+		cat.advance(1.0 / 60.0)
+	check(cat.current_animation == "eat" and cat.action_time > 0, "eating begins only after arriving at the bowl")
+	var station: Dictionary = main.room.station_target(cat, cat.station_id, "eat")
+	var muzzle := CatRig.BOWL_MOUTH * cat.cat_scale()
+	if not cat.facing_right:
+		muzzle.x = -muzzle.x
+	check((cat.foot * main.room.size + muzzle).distance_to(station.rim) < 0.1, "cat muzzle aligns with the existing food rim")
+	main.game.move_furniture("bowl-start", 75, 85)
+	cat.advance(1.0 / 60.0)
+	check(cat.current_animation == "walk" and cat.pending_action == "eat", "moving the bowl sends the cat to the new position")
+	for item in main.game.data.furniture:
+		if item.id == "bowl-start":
+			item.placed = false
+	cat.advance(1.0 / 60.0)
+	var coins_before: int = main.game.data.coins
+	main.game.data.pets[0].hunger = 60.0
+	main._do_care("feed")
+	check(cat.station_id.is_empty() and cat.current_animation == "sit" and main.game.data.coins == coins_before, "storing a bowl cancels eating and feeding without a bowl is free of charges")
+	for item in main.game.data.furniture:
+		if item.id == "bowl-start":
+			item.placed = true
+			item.flipped = true
+	cat.play_action("drink")
+	for i in range(600):
+		if cat.current_animation == "drink":
+			break
+		cat.advance(1.0 / 60.0)
+	check(cat.current_animation == "drink" and cat.station_id == "bowl-start", "drinking finds the water side of the relocated and mirrored bowl")
+	var water: Dictionary = main.room.station_target(cat, cat.station_id, "drink")
+	muzzle = CatRig.BOWL_MOUTH * cat.cat_scale()
+	if not cat.facing_right:
+		muzzle.x = -muzzle.x
+	check((cat.foot * main.room.size + muzzle).distance_to(water.rim) < 0.1, "mirrored water bowl and cat muzzle stay aligned")
+	check(cat.rig != null and cat.rig.get_child_count() == 0 and cat.get_child_count() == 1 and main.room.actors.size() == 2, "one rig renders each cat without spawned bowl or extra cat nodes")
+	cat.play_action("litter")
+	for i in range(600):
+		if cat.current_animation == "litter":
+			break
+		cat.advance(1.0 / 60.0)
+	check(cat.current_animation == "litter" and cat.station_id == "litter-start", "litter animation sits at a real placed tray")
+	cat.play_action("sit")
+	main.room.size = Vector2(700, 450)
+	main.room.refresh()
+	cat.play_action("drink")
+	for i in range(600):
+		if cat.current_animation == "drink":
+			break
+		cat.advance(1.0 / 60.0)
+	water = main.room.station_target(cat, cat.station_id, "drink")
+	muzzle = CatRig.BOWL_MOUTH * cat.cat_scale()
+	if not cat.facing_right:
+		muzzle.x = -muzzle.x
+	check((cat.foot * main.room.size + muzzle).distance_to(water.rim) < 0.1, "bowl interaction remains aligned after resizing the room")
+	var parts_are_separate := true
+	var image := CatRig.ATLAS.get_image()
+	for region: Rect2 in CatRig.REGIONS.values():
+		parts_are_separate = parts_are_separate and Rect2(Vector2.ZERO, image.get_size()).encloses(region)
+		for x in range(int(region.position.x), int(region.end.x)):
+			parts_are_separate = parts_are_separate and image.get_pixel(x, int(region.position.y)).a < 0.01 and image.get_pixel(x, int(region.end.y) - 1).a < 0.01
+		for y in range(int(region.position.y), int(region.end.y)):
+			parts_are_separate = parts_are_separate and image.get_pixel(int(region.position.x), y).a < 0.01 and image.get_pixel(int(region.end.x) - 1, y).a < 0.01
+	check(parts_are_separate, "all six rig parts have transparent margins and contain no cropped neighboring part")
+	cat.set_process(true)
 	main.room.pet_clicked.emit("milo")
 	check(main.game.data.selected == "milo" and "Milo" in main.name_label.text and main.game.selected_pet().joy == 66, "room pet interaction selects and pets the animal")
 	main.room.pet_clicked.emit("momo")
