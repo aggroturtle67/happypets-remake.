@@ -25,6 +25,8 @@ Zum Anzeigen im normalen Raum bitte F5 starten.
 Die vorhandene ItemDatabase laedt data/needs/litter_boxes/litter_box_basic.tres.
 ItemData.default_texture bestimmt die Wanne. ItemData.state_textures enthaelt
 fuenf Bilder unter den Schluesseln clean, light, medium, dirt und full.
+Die ItemData-Variablen in RoomManager und MainRoom sind ausdruecklich typisiert,
+damit auch ein Import ohne vorherigen Godot-Cache die Skripte kompilieren kann.
 MainRoom instanziiert die im Datensatz hinterlegte gemeinsame Szene und ruft
 setup(item_data, placed_data) auf. Das Skript uebernimmt daraus ALLE Bilder und
 waehlt das Streubild anhand der gespeicherten Sauberkeit. Keine fest codierten
