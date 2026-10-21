@@ -1,0 +1,21 @@
+CozyGame – Katzenklo: zwoelf Minuten (v9)
+
+KLEINES UPDATE FUER VERSION8
+Dieses Paket ersetzt ausschliesslich litter_box.gd. Die anderen Dateien aus
+Version8 bleiben erhalten.
+Godot schliessen, ZIP entpacken und litter_box.gd neben deine project.godot
+kopieren. Die vorhandene Datei ersetzen. Godot oeffnen und mit F5 oder dem
+separaten Sechs-Katzen-Testraum mit F6 testen.
+
+NEUE REGEL
+Ein sauberes Klo braucht immer zwoelf Spielminuten bis vollstaendig verschmutzt,
+unabhaengig davon, ob eine oder sechs Katzen im Raum leben.
+Nach3 Minuten:75 Prozent sauber. Nach6:50. Nach9:25. Nach12:0.
+Die Anzeige sinkt weiterhin kontinuierlich; die fuenf Grafiken wechseln passend.
+Die Katzenzahl beschleunigt die Verschmutzung nicht mehr.
+
+Unveraendert: vier Reinigungsklicks, Pausieren beim Reinigen und bei Spielpause,
+Futterlogik, Speichern und Laden. Keine Toilettenanimation der Katze.
+Die Standard-Einstellung Seconds Per Stage bleibt180 Sekunden.
+Ein bereits teilweise schmutzig gespeichertes Klo beginnt mit diesem gespeicherten
+Wert. Die zwoelf Minuten gelten fuer den gesamten Weg von100 bis0.
