@@ -1,30 +1,22 @@
-Shop-Icon – Version 4: breiterer und dezenterer Konturschein
+Shop-Icon – Version 5: Originalgrafik ohne Outline
 
-WICHTIG: Dateien auf GitHub aktualisieren dein Godot-Projekt auf deinem Windows-PC nicht automatisch. Dieses Paket muss zuerst in dein vorhandenes Projekt kopiert werden.
+Die Grafik wird mit 200 x 200 UI-Pixeln unten links dargestellt. Outline, Leuchtschein und Hintergrundfläche sind vollständig entfernt. Die PNG bleibt unverändert. Ein Shop-Fenster öffnet sich noch nicht.
 
-SO SETZT DU DIE DATEIEN EIN
+SO SETZT DU DIE DATEIEN IN DEIN LOKALES PROJEKT EIN
 
-1. Godot schließen.
-2. Die heruntergeladene ZIP mit Rechtsklick > Alle extrahieren entpacken.
-3. Deinen vorhandenen Spielordner öffnen. Im richtigen Ordner liegt die Datei project.godot. Dort sind bereits die Ordner assets und scenes vorhanden.
-4. Aus dem entpackten Paket die beiden Ordner assets und scenes genau dorthin kopieren. Bestehende Ordner zusammenführen und die mitgelieferten gleichnamigen Dateien ersetzen. Nicht die kompletten vorhandenen Ordner löschen. Es darf kein zusätzlicher Ordner assets/assets oder scenes/scenes entstehen.
-5. Dein Projekt wieder in Godot öffnen und den Import abwarten.
-6. Mit F5 das gesamte Projekt starten. F6 startet nur eine einzelne Szene; dort ist das HUD möglicherweise nicht enthalten.
+1. Godot schließen und die heruntergeladene ZIP entpacken.
+2. Deinen vorhandenen Spielordner öffnen. Dort liegt die Datei project.godot.
+3. Aus dem Paket die Ordner assets und scenes genau dorthin kopieren. Bestehende Ordner zusammenführen und die mitgelieferten gleichnamigen Dateien ersetzen. Nicht die vollständigen vorhandenen Ordner löschen.
+4. Dein Projekt wieder in Godot öffnen, den Import abwarten und mit F5 das gesamte Spiel starten.
 
-Die mitgelieferte scenes/main/main/main.tscn basiert auf deinem hochgeladenen Spielstand und ergänzt dort den ShopButton. Das Paket enthält die vollständige Shop-Icon-Ergänzung; Versionen 1 bis 3 müssen nicht vorher eingesetzt werden.
+Dateien auf GitHub aktualisieren dein lokales Godot-Projekt nicht automatisch. Dieses Paket enthält den vollständigen Shop-Icon-Einbau; ältere Versionen müssen nicht vorher eingesetzt werden.
 
-WAS DU SEHEN SOLLTEST
-
-Unten links erscheint dein Korb mit einer 200 x 200 UI-Pixel großen Grafik und einem breiten, zurückhaltenden, weich auslaufenden Konturschein. Die helle rechteckige Hintergrundfläche ist entfernt. Das Icon bleibt beim Bewegen der Raumkamera an derselben Stelle. Ein Shop-Fenster öffnet sich noch nicht.
-
-ORDNERSTRUKTUR
+DATEIEN
 
 assets/UI/hud/bottom_bar/shop_icon.png
-assets/UI/shaders/soft_icon_glow.gdshader
-assets/UI/shaders/soft_icon_glow.gdshader.uid
 scenes/UI/hud/components/shop_button.tscn
 scenes/main/main/main.tscn
 
-Die PNG ist unverändert. Der neue Effekt entsteht im Shader; die Unschärfe reicht jetzt bis zu 20 statt 8 UI-Pixeln und leuchtet deutlich schwächer.
+Die mitgelieferte main.tscn basiert auf deinem hochgeladenen Spielstand und ergänzt dort den ShopButton. Die Button-Szene verwendet keinen Glow-Shader mehr. Der Randabstand der 232 x 232 UI-Pixel großen transparenten Schaltfläche beträgt weiterhin 32 UI-Pixel links und unten. Die Grafik sitzt mit 16 UI-Pixeln Innenabstand darin, genau wie in den vorigen Versionen.
 
-Godot 4.7.2: Projektstart und Positionierung in vier Fenstergrößen geprüft. Der neue Webexport wurde zusätzlich im Browser geprüft.
+Godot 4.7.2: Projektstart und Platzierung bei mehreren Fenstergrößen geprüft. Webexport im Browser geprüft.

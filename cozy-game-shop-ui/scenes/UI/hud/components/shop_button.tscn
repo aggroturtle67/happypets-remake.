@@ -1,12 +1,8 @@
 [gd_scene format=3]
 
 [ext_resource type="Texture2D" path="res://assets/UI/hud/bottom_bar/shop_icon.png" id="1_shop_icon"]
-[ext_resource type="Shader" path="res://assets/UI/shaders/soft_icon_glow.gdshader" id="2_soft_glow"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_shop"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_shop_glow"]
-shader = ExtResource("2_soft_glow")
 
 [node name="ShopButton" type="Button"]
 custom_minimum_size = Vector2(232, 232)
@@ -20,23 +16,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_shop")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_shop")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_shop")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_shop")
-
-[node name="Glow" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_shop_glow")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("1_shop_icon")
-expand_mode = 1
-stretch_mode = 0
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1
