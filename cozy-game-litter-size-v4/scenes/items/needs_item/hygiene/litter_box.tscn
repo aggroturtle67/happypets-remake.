@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cspvcyt17warg"]
+
+[ext_resource type="Script" uid="uid://br27pa3k2ophj" path="res://scripts/items/needs_item/hygiene/litter_box.gd" id="1_l5yne"]
+
+[node name="LitterBox" type="Node2D" unique_id=1491501499]
+visible = true
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_l5yne")
+
+[node name="BoxSprite" type="Sprite2D" parent="." unique_id=51039842]
+visible = true
+
+[node name="LitterState" type="Sprite2D" parent="." unique_id=2548816]
+visible = true

@@ -1,0 +1,13 @@
+CozyGame – Katzenklo etwas groesser v4
+
+Godot schliessen. Diese ZIP ausserhalb des Spielordners entpacken.
+Den Ordner scenes neben project.godot kopieren. Ordner zusammenfuehren
+und die gleichnamige litter_box.tscn ersetzen. Godot oeffnen und F5 druecken.
+Dieses Update gehoert in den Spiel-/Projektordner, nicht in den Benutzerdatenordner.
+
+Skalierung der gemeinsamen Katzenklo-Szene von0.60 auf0.70 angehoben:
+rund17 Prozent groesser in Breite und Hoehe. Wanne und Streu wachsen gemeinsam.
+Die Szene enthaelt weiterhin keine festen Grafiken. Alle Bilder kommen wie im
+letzten Klo-Itemdaten-v3-Update aus den Itemdaten.
+Keine Aenderung an Spielstand, Position, Sauberkeit, Skripten oder Top Bar.
+Der zuvor reparierte Spielstand bleibt erhalten.
