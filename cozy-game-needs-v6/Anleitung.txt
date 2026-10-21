@@ -1,0 +1,47 @@
+CozyGame – Teststart und verbundene Balken v6 (Godot 4.7)
+
+INSTALLATION
+Dieses Paket enthaelt die bisherigen Futter- und Klo-Aenderungen bereits mit.
+Du brauchst die aelteren Pakete nicht zusaetzlich zu kopieren.
+1. Godot schliessen und ZIP entpacken.
+2. Die Datei litter_box.gd UND die Ordner scripts und scenes neben deine
+   project.godot kopieren. Gleichnamige Dateien ersetzen.
+3. Godot oeffnen und F5 druecken. Kein Installationsscript erforderlich.
+
+TESTSTART
+Food-Balken: 0 Prozent. Die Katze ist sofort hungrig, der Napf ist leer.
+Cleanliness-Balken: 0 Prozent. Das Klo ist vollstaendig verschmutzt.
+Es gibt weiterhin keine Toilettenbenutzung oder Toilettenanimation der Katze.
+
+TESTABLAUF
+1. Futtersack auswaehlen und den Napf viermal anklicken: 25, 50, 75, 100 Prozent.
+   Nur der Napf fuellt sich. Food oben zeigt ausschliesslich die Saettigung der Katze.
+2. Sobald der Napf voll ist, wechselt der Cursor zur Maus. Die Katze laeuft zum Napf
+   und frisst. Jetzt steigt der Food-Balken bis 100 und der Napf wird wieder leer.
+3. Schaufel auswaehlen und das Klo viermal anklicken. Cleanliness steigt sofort
+   mit jedem Klick: 25, 50, 75, 100. Auch die Klo-Grafik wird jeweils sauberer.
+4. Nach dem letzten Reinigungsklick wechselt der Cursor zur Maus.
+
+BALKEN
+Food = Saettigung der Katze. Das Auffuellen des Napfes allein gibt keine Saettigung.
+Ein voller Napf gibt nun bis zu 100 Saettigungspunkte, eine Viertelportion bis zu 25.
+Cleanliness = tatsaechliche Sauberkeit des Katzenklos, kein fester Testwert mehr.
+Beim automatischen Verschmutzen sinkt der Balken passend zur Grafik, alle drei
+Spielminuten um 25 Punkte. Nach vollstaendiger Reinigung startet die Zeit neu.
+Die Balken aktualisieren sich ueber die Signale der Katze bzw. des Katzenklos.
+
+WERKZEUGE
+Bis der Napf voll bzw. das Klo sauber ist, bleibt das passende Werkzeug ausgewaehlt.
+Maus auswaehlen oder Escape beendet die Arbeit vorzeitig. Die kleinere Futterportion
+wird dann fuer die Katze freigegeben; beim Klo laeuft die Verschmutzungszeit weiter.
+Spielpause haelt Hunger und automatische Verschmutzung an.
+
+SPAETER DEN HUNGER-TESTSTART ABSCHALTEN
+An der Katze unter 'Hunger und Fressen' die Option 'Start Hungry For Testing'
+ausschalten. Dann gilt wieder 'Starting Satiety' (Standard 70).
+Fuer dieses Paket beginnt der Raum absichtlich mit einem schmutzigen Klo.
+Eine eigene Fressanimation und Spielstandspeicherung sind weiterhin nicht enthalten.
+
+UI
+Panelposition und Panelgroesse sowie Topbar werden nicht ersetzt. Cursor wie zuletzt
+vereinbart: Maus 48, Futtersack 80, Schaufel 96 Pixel.
