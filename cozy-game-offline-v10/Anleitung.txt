@@ -1,0 +1,66 @@
+CozyGame – Offline-Verbrauch v10 (Godot 4.7)
+
+INSTALLATION
+Dieses Paket enthaelt die bisherigen Raum-Food-Regeln, die Klo-Korrektur aus v9
+und den neuen Offline-Verbrauch. Keine aelteren Pakete zusaetzlich einsetzen.
+1. Godot schliessen und ZIP entpacken.
+2. Die Datei litter_box.gd und die Ordner scripts und scenes in deinen
+   Spielordner neben project.godot kopieren. Gleichnamige Dateien ersetzen.
+3. Godot oeffnen und dein normales Spiel mit F5 starten.
+Deine Panelpositionen, Topbar und Animationsgrafiken werden nicht ersetzt.
+Die neue Datei scripts/managers/offline_consumption.gd muss mitkopiert werden.
+
+OFFLINE-VERBRAUCH
+Der Spielstand speichert nun auch den Zeitpunkt. Beim Oeffnen wird ausschliesslich
+die tatsaechlich vergangene Zeit nachgerechnet, ohne festen Abzug oder Reset.
+Beispiel: Eine gerade satte Katze hat nach zwei Minuten etwa90 statt100 Saettigung.
+Ab50 sucht sie Futter. Ohne Vorrat sinkt sie in insgesamt20 Minuten von100 auf0.
+Vorhandene Naepfe koennen offline verbraucht werden: Eine Mahlzeit verbraucht50
+Napfpunkte, dauert5 Sekunden und macht die Katze voll satt. Ein voller Napf reicht
+fuer zwei Mahlzeiten. Pro Napf frisst immer nur eine Katze; weitere Katzen warten
+oder nutzen einen freien Napf. Auch ein bereits begonnener Weg zum Napf und eine
+unterbrochene Mahlzeit werden weitergerechnet. Offline werden keine Bilder oder
+zufaelligen Taetigkeiten abgespielt; der Weg wird anhand von Position und Lauftempo
+berechnet. Die Katze erscheint beim Oeffnen am so berechneten Standort.
+Nach Ende des Vorrats sinken die Saettigungen weiter. Bei0 bleiben sie dort.
+Es gibt keine automatische Auffuellung, keine negativen Werte und keinen Reset.
+Auch lange Abwesenheiten werden ohne minutenlanges Nachspielen verarbeitet.
+
+Das Katzenklo wird auch offline kontinuierlich schmutziger:100 bis0 in zwoelf
+Minuten, sowohl bei einer als auch bei sechs Katzen. Bei0 bleibt es schmutzig,
+bis der Spieler reinigt. Kein Toilettenbesuch und keine Toilettenanimation.
+Eine beim Schliessen ausgewaehlte Schaufel oder Futtersack pausiert die Offline-Zeit
+nicht. Das Spiel oeffnet wieder mit dem normalen Mauswerkzeug.
+
+SPEICHERUNG
+Automatisch alle fuenf Sekunden, nach Futter-/Reinigungsklicks, abgeschlossenen
+Mahlzeiten und beim normalen Schliessen des Spielfensters. Beim Laden wird die
+bereits verrechnete Zeit sofort gesichert, damit erneutes Laden nicht doppelt zaehlt.
+Vorhandene v8/v9-Spielstaende bleiben nutzbar. Beim allerersten Oeffnen nach diesem
+Update bleibt deren Stand erhalten; Offline-Verbrauch beginnt erst ab dann, da die
+alten Dateien noch keinen Zeitstempel hatten. Kein rueckwirkender Abzug fuer die
+Zeit vor diesem Update.
+Datei: user://room_food_state_v1.json im Godot-Benutzerdatenordner.
+Beim Testen am besten das Spielfenster normal ueber X schliessen. Erzwungenes Stoppen
+im Editor behaelt eventuell nur den letzten Autosave (bis zu fuenf Sekunden alt).
+
+BISHERIGE REGELN BLEIBEN
+Food = durchschnittliche persoenliche Saettigung aller Katzen im Raum.
+Clean = durchschnittliche Sauberkeit aller Katzenklos im Raum.
+Maximal sechs Katzen und drei Naepfe. Normaler Spielstart weiterhin eine Katze und
+ein Napf; Shop und Adoption sind noch nicht implementiert.
+Nachfuellen:25 Napfpunkte je Klick, unbegrenzt und vorerst kostenlos.
+Mindestens50 Napfpunkte sind fuer eine Mahlzeit erforderlich. Nachfuellen waehrend
+einer Mahlzeit vergroessert die reservierte Portion nicht. Saeubern:+25 je Klick.
+Sinkende Balken bleiben kontinuierlich; kein neuer Animationsinhalt.
+Neue Spielstaende beginnen wie bisher zu Testzwecken hungrig, mit leerem Napf und
+schmutzigem Klo. Bereits gespeicherte Werte werden vorrangig geladen.
+
+OFFLINE SELBST TESTEN
+Im normalen F5-Spiel reinigen und fuettern, Katze satt werden lassen. Fenster ueber
+X schliessen, zwei Minuten warten und erneut F5 starten: Saettigung etwa90.
+Futter, das noch nicht benoetigt wurde, bleibt liegen. Nach laengerer Abwesenheit
+sind vorhandene Mahlzeiten verbraucht und bei leerem Vorrat sinkt Food weiter.
+Der separate F6-Testraum scenes/tests/food_room_test.tscn startet jedes Mal frisch
+mit sechs Katzen und drei Naepfen. Er speichert absichtlich NICHT und ist deshalb
+nicht zum Testen des Offline-Verbrauchs gedacht.
