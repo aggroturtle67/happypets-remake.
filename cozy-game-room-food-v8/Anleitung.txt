@@ -1,0 +1,74 @@
+CozyGame – Raum-Food v8 (Godot 4.7)
+
+INSTALLATION
+Enthaelt die bisherige Futter-/Klo-Logik mit den jetzt abgestimmten Raumregeln.
+Aeltere Pakete brauchst du nicht zusaetzlich einzusetzen.
+1. Godot schliessen und ZIP entpacken.
+2. litter_box.gd sowie die Ordner scripts und scenes neben deine project.godot
+   kopieren. Gleichnamige Dateien ersetzen.
+3. Godot oeffnen. F5 startet dein gewohntes Spiel. Kein Installationsscript noetig.
+Panelposition/-groesse, Topbar und vorhandene Animationsgrafiken bleiben erhalten.
+
+FOOD IST EIN RAUMWERT
+Food ist die durchschnittliche Saettigung aller Katzen im aktuellen Raum.
+Beispiel: fuenf Katzen bei100 und eine bei0 ergeben etwa83,3 Prozent.
+Napfinhalt und Anzahl der Naepfe werden nicht direkt in diesen Balken eingerechnet.
+Jede Katze hat intern weiterhin ihren eigenen Hunger. Ab50 sucht sie Futter.
+Ohne Futter sinkt die Saettigung kontinuierlich weiter bis0. Von100 bis50 dauert
+es etwa zehn Spielminuten; ohne Mahlzeit bis0 etwa zwanzig Minuten.
+
+EINE MAHLZEIT = EIN HALBER NAPF
+Ein voller Napf reicht fuer zwei Katzen. Eine hungrige Katze reserviert vor dem
+Loslaufen eine halbe Schuessel. Pro Napf frisst nur eine Katze zur selben Zeit.
+Andere Katzen nehmen einen freien Napf oder warten auf die naechste Gelegenheit.
+Die Mahlzeit dauert standardmaessig fuenf Sekunden und macht die Katze satt.
+Danach bleibt die andere Haelfte stehen. Erst nach zwei Mahlzeiten ist der Napf leer.
+Waehrend der Mahlzeit steigt die persoenliche Saettigung; der Raumbalken steigt
+entsprechend dem Anteil dieser Katze. Die alten globalen25-Prozent-Spruenge passen
+bei mehreren Katzen nicht mehr zum Durchschnitt und werden dafuer nicht verwendet.
+Ein Viertel Napf reicht noch nicht fuer eine Mahlzeit; mindestens50 muessen bereitstehen.
+
+NACHFUELLEN BLEIBT FREI
+Jeder Futtersack-Klick fuellt25 Punkte nach, maximal100. Beliebig oft auffuellbar,
+noch ohne Kosten oder Futterinventar. Geldkosten kommen spaeter mit dem Shop.
+Bis der Napf voll ist bleibt der Futtersack ausgewaehlt. Dann zurueck zur Maus.
+Maus oder Escape beendet das Auffuellen frueher. Aktives Auffuellen pausiert das
+Fressen. Eine Nachfuellung vergroessert eine bereits reservierte Mahlzeit nicht.
+
+GRENZEN
+Maximal sechs Katzen und drei Futter-naepfe pro Raum. Die Erstellungsfunktionen
+und das Laden pruefen diese Grenzen. Shop und Adoption sind noch nicht eingebaut;
+der gewohnte Spielstart bleibt deshalb bei deiner vorhandenen Katze und einem Napf.
+Ein separater Testraum unten zeigt schon die sechs Katzen mit drei Naepfen.
+
+CLEAN IST EBENFALLS EIN RAUMWERT
+Clean zeigt die durchschnittliche Sauberkeit der Katzenklos im Raum.
+Die Verschmutzung entsteht ausschliesslich mit der Spielzeit, ohne Toilettenbesuch
+oder Toilettenanimation. Mehr Katzen verschmutzen schneller: jede Katze traegt die
+bisherige Grundrate bei. Ein Klo mit einer Katze braucht zwoelf Minuten von100 bis0;
+mit sechs Katzen zwei Minuten. Seconds Per Stage am Klo stellt die Grundrate ein.
+Der Balken sinkt kontinuierlich; die fuenf Klo-Bilder wechseln an den Viertelgrenzen.
+Vier Schaufelklicks reinigen ein volles Klo. Aktives Reinigen und Spielpause halten
+die Verschmutzung an. Erst ganz sauber zur Maus zurueck.
+
+SPEICHERN OHNE OFFLINE-VERBRAUCH
+Katzen, Positionen, Saettigung, Napfinhalte und Klozustaende werden gespeichert:
+alle fuenf Sekunden, nach Nachfuell-/Reinigungsklicks, abgeschlossenen Mahlzeiten
+und beim normalen Schliessen des Spielfensters. Eine unterbrochene Mahlzeit wird
+mit ihrer verbliebenen reservierten Menge fortgesetzt.
+Beim erneuten Oeffnen werden die gespeicherten Werte geladen. Die geschlossene
+Zeit wird vorerst NICHT verrechnet. Der Abendvorrat bleibt also erhalten.
+Speicherdatei: user://room_food_state_v1.json im Godot-Benutzerdatenordner.
+Erzwungenes Stoppen im Editor kann nur den letzten Autosave behalten.
+Dies ist die Speicherung dieser Raum-/Futterwerte, noch kein komplettes Wirtschaftssystem.
+
+SECHS KATZEN SELBST TESTEN
+Im Godot-Dateisystem scenes/tests/food_room_test.tscn oeffnen und F6 druecken.
+Der separate Testraum beginnt mit sechs hungrigen Katzen und drei leeren Naepfen.
+Drei volle Naepfe versorgen alle sechs Katzen einmal; jeder frisst nur eine Haelfte.
+Der Testraum speichert NICHT und ueberschreibt deinen normalen Spielstand nicht.
+Danach kannst du wieder mit F5 dein normales Spiel starten.
+
+AUSSTEHEND
+Offline-Verbrauch, Shopkosten und Freischaltungen bleiben fuer spaeter.
+Eine eigene Fressanimation wurde nicht hinzugefuegt; die vorhandenen Grafiken bleiben.
