@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/items/item_data.gd" id="1_data"]
+[ext_resource type="Texture2D" path="res://assets/items/companion_accesories/toilets/litter_box_basic.png" id="2_icon"]
+[ext_resource type="PackedScene" path="res://scenes/items/needs_item/hygiene/litter_box.tscn" id="3_scene"]
+
+[ext_resource type="Texture2D" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_clean.png" id="4_clean"]
+[ext_resource type="Texture2D" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_light.png" id="5_light"]
+[ext_resource type="Texture2D" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_medium.png" id="6_medium"]
+[ext_resource type="Texture2D" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_dirt.png" id="7_dirt"]
+[ext_resource type="Texture2D" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_full.png" id="8_full"]
+
+[resource]
+script = ExtResource("1_data")
+item_id = "litter_box_basic"
+display_name = "Katzenklo"
+category = "litter_box"
+scene = ExtResource("3_scene")
+icon_texture = ExtResource("2_icon")
+default_texture = ExtResource("2_icon")
+
+state_textures = {
+"clean": ExtResource("4_clean"),
+"light": ExtResource("5_light"),
+"medium": ExtResource("6_medium"),
+"dirt": ExtResource("7_dirt"),
+"full": ExtResource("8_full")
+}

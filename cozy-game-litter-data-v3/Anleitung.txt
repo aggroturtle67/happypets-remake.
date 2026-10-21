@@ -1,0 +1,41 @@
+CozyGame – Katzenklo aus den Itemdaten v3 (Godot 4.7)
+
+INSTALLATION
+1. Godot schliessen und diese ZIP ausserhalb des Spielordners entpacken.
+2. Ordner scripts, scenes, data und assets neben project.godot kopieren.
+   Ordner zusammenfuehren und gleichnamige Dateien ersetzen. Keine vorhandenen
+   Ordner vorher loeschen, da sie weitere Spielressourcen enthalten.
+3. Nur EINE litter_box.gd darf im Projekt verbleiben, und zwar unter:
+   scripts/items/needs_item/hygiene/litter_box.gd
+   Falls noch eine alte litter_box.gd im Hauptordner oder unter
+   scenes/items/needs_item/hygiene/ liegt, diese samt ihrer .uid aus dem gesamten
+   Projekt herausverschieben, zum Beispiel als Sicherung auf den Desktop.
+   Keine Sicherungs- oder alten Updateordner innerhalb des Spielprojekts ablegen.
+4. Godot oeffnen, Import abwarten und das normale Spiel mit F5 starten.
+
+KORREKTUREN
+Die hochgeladene Szene verwies noch auf scenes/.../litter_box.gd. Sie verweist
+jetzt auf den vereinbarten kategorisierten Pfad unter scripts/.
+Die gemeinsame Szene enthaelt KEINE Toilettengrafik und keine festen Streubilder.
+Sie enthaelt nur den Skriptverweis, die beiden Sprite-Nodes und ihre gemeinsame
+Skalierung0.60 (etwa ein Drittel groesser als die urspruenglichen0.45).
+Eine leere Vorschau dieser einzelnen Grundszene ist ohne Itemdaten beabsichtigt.
+Zum Anzeigen im normalen Raum bitte F5 starten.
+
+Die vorhandene ItemDatabase laedt data/needs/litter_boxes/litter_box_basic.tres.
+ItemData.default_texture bestimmt die Wanne. ItemData.state_textures enthaelt
+fuenf Bilder unter den Schluesseln clean, light, medium, dirt und full.
+MainRoom instanziiert die im Datensatz hinterlegte gemeinsame Szene und ruft
+setup(item_data, placed_data) auf. Das Skript uebernimmt daraus ALLE Bilder und
+waehlt das Streubild anhand der gespeicherten Sauberkeit. Keine fest codierten
+Grafikpfade im Skript und keine Grafik als Ersatz in der Grundszene.
+
+SPAETERE TOILETTENMODELLE
+Ein neuer ItemData-Datensatz kann dieselbe Szene verwenden, bekommt aber eine
+eigene item_id, default_texture und die fuenf eigenen state_textures.
+Dieses Paket fuegt noch keinen Shop und keine Kaufaktion hinzu; es stellt die
+vorhandene Darstellung korrekt auf die Itemdaten um.
+
+Keine Aenderung an Top Bar, Save-Datei, gespeicherten Positionen, Klo-Regeln oder
+Offline-Verbrauch. Kein Zuruecksetzen des Spielstands.
+Dieses Paket ersetzt die vorherige Loesung mit Grafik direkt in der Szene.
