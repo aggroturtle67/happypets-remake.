@@ -1,0 +1,31 @@
+CozyGame – Katzenklo-Skript einsortieren (Godot 4.7)
+
+Dieses kleine Update verschiebt nur das Katzenklo-Skript in seine Kategorie.
+Der Skriptinhalt ist identisch zu deiner hochgeladenen Datei; die zugehoerige UID
+bleibt erhalten. Der Skriptverweis in der Katzenklo-Szene ist angepasst.
+Neue Position: scripts/items/needs_item/hygiene/litter_box.gd
+
+INSTALLATION – bitte in dieser Reihenfolge
+1. Godot schliessen.
+2. Direkt neben project.godot liegen aktuell litter_box.gd und litter_box.gd.uid.
+   Beide Dateien aus dem gesamten Spielordner herausverschieben, zum Beispiel
+   in einen Sicherungsordner auf dem Desktop. Nicht im Spielordner sichern!
+   Andere alte Kopien von litter_box.gd innerhalb des Projekts ebenfalls nach
+   ausserhalb verschieben. Am Ende darf es nur die unten genannte Version geben.
+3. Diese ZIP ausserhalb deines Spielordners entpacken.
+4. Die darin enthaltenen Ordner scripts und scenes neben project.godot kopieren.
+   Ordner zusammenfuehren, gleichnamige Dateien ersetzen. Vorhandene Ordner nicht
+   vorher loeschen; sie enthalten deine anderen Spielressourcen.
+5. Godot oeffnen, den Import abwarten und F5 druecken.
+
+Danach liegt die einzige Definition von class_name LitterBox hier:
+res://scripts/items/needs_item/hygiene/litter_box.gd
+
+DIESE DATEIEN BLEIBEN IM HAUPTORDNER
+project.godot: Godot benoetigt diese Datei als Projekteinstieg.
+.gitignore und .gitattributes: Gehoeren als Git-Einstellungen in den Projektstamm.
+Sie sind keine Spielskripte und werden durch dieses Paket nicht veraendert.
+
+Keine Aenderung an Spielregeln, Top Bar, Szenenpositionen oder Spielstaenden.
+Die zwoelfminuetige Verschmutzung und Reinigung wurden nach dem Verschieben geprueft.
+Alte Downloads mit litter_box.gd im Hauptordner nicht erneut darueberkopieren.

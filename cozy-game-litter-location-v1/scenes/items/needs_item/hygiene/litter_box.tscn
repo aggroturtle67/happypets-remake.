@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cspvcyt17warg"]
+
+[ext_resource type="Script" uid="uid://br27pa3k2ophj" path="res://scripts/items/needs_item/hygiene/litter_box.gd" id="1_l5yne"]
+[ext_resource type="Texture2D" uid="uid://d8ncagk2flal" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_clean.png" id="2_t6fda"]
+[ext_resource type="Texture2D" uid="uid://dksnymda531a6" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_light.png" id="3_iea3y"]
+[ext_resource type="Texture2D" uid="uid://c451q7q6uieet" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_medium.png" id="4_n8nwi"]
+[ext_resource type="Texture2D" uid="uid://lers67k3uaif" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_dirt.png" id="5_bi5ph"]
+[ext_resource type="Texture2D" uid="uid://dyn7maoanq7bx" path="res://assets/items/companion_accesories/toilets/fill_states/litter_state_full.png" id="6_burjm"]
+
+[node name="LitterBox" type="Node2D" unique_id=1491501499]
+scale = Vector2(0.45, 0.45)
+script = ExtResource("1_l5yne")
+clean_texture = ExtResource("2_t6fda")
+light_texture = ExtResource("3_iea3y")
+medium_texture = ExtResource("4_n8nwi")
+dirt_texture = ExtResource("5_bi5ph")
+full_texture = ExtResource("6_burjm")
+
+[node name="BoxSprite" type="Sprite2D" parent="." unique_id=51039842]
+
+[node name="LitterState" type="Sprite2D" parent="." unique_id=2548816]
