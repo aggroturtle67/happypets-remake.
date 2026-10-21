@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b8fe3imla15vs"]
+
+[ext_resource type="Texture2D" uid="uid://1oooq0qxosv7" path="res://assets/UI/hud/top_bar/pause_icon.PNG" id="1_l6ehh"]
+[ext_resource type="Script" uid="uid://cet13x8dn0fn3" path="res://scripts/ui/hud/components/pause_button.gd" id="2_qim2x"]
+
+[node name="PauseButton" type="TextureButton" unique_id=1497336285]
+custom_minimum_size = Vector2(44, 44)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+tooltip_text = "Pause"
+self_modulate = Color(0.78, 0.66, 0.63, 1)
+focus_mode = 0
+texture_normal = ExtResource("1_l6ehh")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("2_qim2x")
