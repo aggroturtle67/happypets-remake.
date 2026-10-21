@@ -1,0 +1,37 @@
+CozyGame – Streicheln durch Mausbewegung und goldene Zufriedenheit v3
+
+INSTALLATION
+Godot und Spielfenster schliessen. ZIP ausserhalb des Spielordners entpacken.
+Die Ordner scripts und scenes neben project.godot kopieren, zusammenfuehren
+und gleichnamige Dateien ersetzen. Godot oeffnen, Import abwarten, F5 starten.
+Das ist ein Projektupdate, keine Datei fuer den Benutzerdatenordner.
+Voraussetzung ist das bisherige Zuneigung-/Zufriedenheits-Update v1.
+Das Gold-Update v2 ist bereits enthalten und muss nicht zusaetzlich eingesetzt werden.
+
+STREICHELN
+Normalen Mauszeiger waehlen. Katze anklicken, linke Maustaste halten und dabei
+ueber der Katze hin und her fahren. Nur die Mausbewegung bringt Zuneigung.
+Gedrueckthalten bei stillstehender Maus gibt keine Punkte. Die Katze haelt waehrend
+des Kontakts kurz an, damit du sie streicheln kannst.
+Loslassen, vom Tier wegbewegen, auf Bedienelemente fahren, Werkzeug wechseln oder
+das Spielfenster verlassen beendet das Streicheln. Kleine gleichmaessige Bewegungen
+zaehlen ebenfalls; isoliertes minimales Zeigerzittern wird nicht sofort belohnt.
+Der Gewinn bleibt auf maximal5 Punkte pro Sekunde begrenzt, auch bei sehr schnellen
+Bewegungen. Es wird kein langer Punkte-Vorrat fuer spaeteres Stillhalten gesammelt.
+Im Panel steht bei Mausbewegung Wird gestreichelt; sonst erinnert es an die Bewegung.
+Neue Streichelanimationen sind weiterhin fuer spaeter vorgesehen.
+
+FARBE
+Die Zufriedenheit ist goldfarben wie die Muenze (#E8A848), mit einem dunkleren
+Goldbraun als leerem Balken (#715022). Die uebrigen Balken bleiben unveraendert.
+
+TEST
+Optional scenes/tests/cat_needs_test.tscn oeffnen und F6 druecken.
+Dort starten die beiden Demonstrationskatzen mit45 und75 Zuneigung, damit du den
+Unterschied zwischen Stillhalten und Bewegen sofort sehen kannst. Dieser separate
+Testraum speichert nicht. F5 startet wie immer das normale Spiel mit deinem Spielstand.
+Bei100 Zuneigung kann der Balken natuerlich nicht weiter steigen.
+
+Keine Aenderung an gespeicherten Werten, Toilette, Offline-Verbrauch oder Zufriedenheits-
+berechnung. Von100 Zuneigung bleiben ohne Streicheln nach36 Stunden weiterhin45.
+Der reparierte Spielstand bleibt erhalten; keine Save-Datei ersetzen.
