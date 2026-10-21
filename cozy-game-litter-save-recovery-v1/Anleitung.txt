@@ -1,0 +1,33 @@
+CozyGame – Fehlendes Katzenklo im Spielstand wiederherstellen
+
+Dieser Download ist ein reparierter SPIELSTAND, kein Update fuer den Projektordner.
+
+INSTALLATION
+1. ZIP ausserhalb deines Spielordners entpacken, zum Beispiel auf dem Desktop.
+2. In Godot Projekt > Benutzerdatenordner oeffnen waehlen.
+   Im Explorer erscheint der Ordner mit deiner bisherigen room_food_state_v1.json.
+3. Das laufende Spielfenster UND Godot schliessen. Den Explorer geoeffnet lassen.
+4. Die bisherige room_food_state_v1.json als Sicherung auf den Desktop kopieren.
+5. Die reparierte room_food_state_v1.json aus dieser ZIP in den Benutzerdatenordner
+   kopieren. Die dortige Datei ersetzen. NICHT neben project.godot ablegen!
+6. Godot wieder oeffnen und das normale Spiel mit F5 starten.
+
+BEFUND UND REPARATUR
+Im hochgeladenen Spielstand war nur der Futternapf als Raumgegenstand enthalten.
+Das Katzenklo fehlte vollstaendig; es war kein unsichtbares Bild an anderer Position.
+Ergaenzt wurde genau ein litter_box_basic mit ID litter_box_start an1120,790.
+Der alte Sauberkeitswert ist nicht mehr vorhanden. Deshalb beginnt das
+wiederhergestellte Klo schmutzig und laesst sich mit vier Schaufelklicks reinigen.
+Katze, Position, Saettigung, Napffuellung, Raumoberflaechen und gespeicherter
+Zeitstempel sind exakt aus deiner eingesandten Datei erhalten geblieben.
+Beim Oeffnen verarbeitet das Spiel die seitdem vergangene Offline-Zeit wie gewohnt.
+
+VORAUSSETZUNG
+Das zuletzt bereitgestellte Klo-Itemdaten-v3-Projektupdate muss bereits eingesetzt
+sein. Die Grafik bleibt in den Itemdaten; dieser Spielstand setzt lediglich die
+fehlende Instanz wieder in den Raum. Keine neue feste Toilettengrafik in der Szene.
+Die Groesse kommt weiterhin aus der gemeinsamen Szene (Skalierung0.60).
+
+Geprueft: Der reparierte Spielstand laedt im aktuellen Projekt eine sichtbare,
+vergroesserte Toilette mit Datenbankgrafiken, und vier Reinigungsklicks funktionieren.
+Die JSON-Reparatur aendert ausschliesslich die Liste der Raumgegenstaende um das Klo.
