@@ -1,0 +1,50 @@
+CozyGame – Futter und Katzenklo v5 (Godot 4.7)
+
+INSTALLATION
+Dieses Paket enthaelt die bisherigen Futter- und Klo-Aenderungen bereits mit.
+Du brauchst v3 und v4 nicht zusaetzlich zu kopieren.
+1. Godot schliessen und ZIP entpacken.
+2. Die Datei litter_box.gd UND die Ordner scripts und scenes neben deine
+   project.godot kopieren. Gleichnamige Dateien ersetzen.
+3. Godot oeffnen und F5 druecken. Kein Installationsscript erforderlich.
+
+KATZENKLO: REINE ZEITSTEUERUNG
+Die Katze laeuft NICHT zum Katzenklo. Es gibt keine Toilettenanimation und
+keine Verknuepfung mit ihren Beduerfnissen. Das Klo wird allein mit der Spielzeit
+schmutzig. Der Katzen-Scriptstand fuer das Fressen bleibt wie zuvor.
+
+Das Klo startet sauber. Standard:
+0 Minuten: sauber (100 Prozent Sauberkeit)
+3 Minuten: leicht verschmutzt (75)
+6 Minuten: mittel (50)
+9 Minuten: stark verschmutzt (25)
+12 Minuten: voll (0)
+Alle fuenf vorhandenen Grafiken werden passend angezeigt.
+Ein volles Klo bleibt voll und wird nicht automatisch wieder sauber.
+Spielpause haelt die Zeit an; nach Neustart beginnt der Ablauf neu.
+
+REINIGEN
+Schaufel auswaehlen und das Klo anklicken. Jeder Klick macht es um 25 Punkte
+sauberer. Vom vollen Klo aus vier Klicks: stark -> mittel -> leicht -> sauber.
+Erst ganz sauber wechselt der Cursor zur Maus. Solange du aktiv reinigst,
+kommt kein neuer Schmutz hinzu. Maus auswaehlen oder Escape beendet die
+Reinigung vorzeitig; die Zeit laeuft dann wieder weiter.
+Nach jeder Reinigung startet die Wartezeit fuer neuen Schmutz von vorn.
+
+ZEIT ANPASSEN
+Klo-Szene: scenes/items/needs_item/hygiene/litter_box.tscn
+Obersten Knoten auswaehlen. Im Inspector unter 'Automatische Verschmutzung'
+ist 'Seconds Per Stage' die Anzahl Spielsekunden pro Stufe (Standard: 180).
+Fuer einen schnellen Test voruebergehend 5 einstellen, danach wieder 180.
+Mit 'Automatic Soiling' kann die automatische Verschmutzung deaktiviert werden.
+Die Clean-Anzeige oben bleibt der bisherige Testwert, sie steuert das Klo nicht.
+
+FUTTER AUS V3
+Vier Klicks mit dem Futtersack: leer -> 25 -> 50 -> 75 -> 100 Prozent.
+Nach dem vierten Klick zurueck zur Maus. Beim Fressen wechseln die Grafiken
+in umgekehrter Reihenfolge bis zum leeren Napf. Hunger ca. vier Minuten nach
+Start, nach vollem Napf ca. zehn Minuten. Noch keine eigene Fressanimation.
+
+UI
+Panelposition und Panelgroesse sowie Topbar werden nicht ersetzt. Cursor wie zuletzt
+vereinbart: Maus 48, Futtersack 80, Schaufel 96 Pixel.
