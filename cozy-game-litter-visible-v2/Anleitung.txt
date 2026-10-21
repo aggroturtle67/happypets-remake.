@@ -1,0 +1,32 @@
+CozyGame – Katzenklo sichtbar und groesser v2 (Godot 4.7)
+
+INSTALLATION
+1. Godot schliessen und diese ZIP ausserhalb des Spielordners entpacken.
+2. Die Ordner scripts, scenes, data und assets neben project.godot kopieren.
+   Ordner zusammenfuehren und gleichnamige Dateien ersetzen. Keine ganzen
+   vorhandenen Ordner loeschen, da sie weitere Spielressourcen enthalten.
+3. Godot oeffnen, den Import abwarten und F5 druecken.
+
+Enthaelt die reparierte Katzenklo-Szene samt benoetigten Grafikdateien und Itemdaten.
+Wanne und Streuzustand haben nun schon direkt in der Szene eine Textur; die Wanne
+ist damit auch vor dem Laden der Itemdaten im Szeneneditor zu sehen.
+Sichtbarkeit und Groesse der Szene sind wiederhergestellt. Die Skalierung ist
+jetzt0.60 statt0.45, also in Breite und Hoehe etwa ein Drittel groesser. Wanne und
+Streu wachsen zusammen; die Zustandsbilder und Reinigung bleiben funktionsfaehig.
+
+Der Skriptpfad bleibt in seiner Kategorie:
+scripts/items/needs_item/hygiene/litter_box.gd
+Keine neue litter_box.gd im Projekt-Hauptordner ablegen. Dort duerfen auch keine
+alten Kopien mit class_name LitterBox verbleiben, da Godot sie doppelt erkennen wuerde.
+Die UID der umsortierten Datei bleibt gleich. Falls der vorherige Umzug schon
+installiert ist, werden diese Dateien einfach am selben Ort ersetzt.
+
+Spielstand, gespeicherte Position/Sauberkeit, Top Bar und andere Gegenstaende
+werden nicht zurueckgesetzt oder vergroessert. Die Klo-Regeln bleiben unveraendert.
+Die Vorschau zeigt das vergroesserte Klo im laufenden Spiel.
+
+SPAETER SELBST ANPASSEN
+scenes/items/needs_item/hygiene/litter_box.tscn oeffnen. Wurzelnode LitterBox
+anklicken. Unter Transform > Scale X und Y gemeinsam aendern, zum Beispiel0.65.
+Nicht nur BoxSprite oder LitterState skalieren, sonst passen Wanne und Streu nicht
+mehr zusammen. Die Texturen sind nun bereits im Editor sichtbar.
