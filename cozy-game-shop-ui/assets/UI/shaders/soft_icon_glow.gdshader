@@ -1,11 +1,11 @@
 shader_type canvas_item;
 render_mode unshaded;
 
-uniform vec4 glow_color : source_color = vec4(1.0, 1.0, 1.0, 0.95);
+uniform vec4 glow_color : source_color = vec4(0.96, 0.96, 0.96, 0.60);
 uniform vec2 icon_size = vec2(200.0, 200.0);
-uniform vec2 drawing_size = vec2(232.0, 232.0);
-uniform float sample_step : hint_range(0.5, 4.0) = 2.0;
-uniform float glow_strength : hint_range(0.0, 3.0) = 2.0;
+uniform vec2 drawing_size = vec2(248.0, 248.0);
+uniform float sample_step : hint_range(0.5, 8.0) = 5.0;
+uniform float glow_strength : hint_range(0.0, 3.0) = 1.0;
 
 void fragment() {
 	// Preserve space for the blur outside the original PNG's bounds.
