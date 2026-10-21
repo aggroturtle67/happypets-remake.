@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://cwemxmknbk4h5"]
+
+[ext_resource type="Script" uid="uid://dwbwtg1ma7f3j" path="res://scripts/ui/hud/components/needs_display.gd" id="1_mitur"]
+[ext_resource type="FontFile" uid="uid://cb4vnqfemleli" path="res://assets/UI/fonts/Nunito-SemiBold.ttf" id="2_2pvr5"]
+
+[ext_resource type="Texture2D" path="res://assets/UI/cursors/food_bag.png" id="3_food"]
+[ext_resource type="Texture2D" path="res://assets/UI/cursors/scoop.png" id="4_clean"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0n7lo"]
+bg_color = Color(0.941176, 0.862745, 0.823529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.670588, 0.505882, 0.470588, 0.75)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njr62"]
+bg_color = Color(0.596078, 0.674510, 0.470588, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.470588, 0.556863, 0.364706, 0.8)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rg5s"]
+bg_color = Color(0.941176, 0.862745, 0.823529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.670588, 0.505882, 0.470588, 0.75)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i1d2"]
+bg_color = Color(0.470588, 0.662745, 0.639216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.368627, 0.545098, 0.525490, 0.8)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+corner_detail = 12
+
+
+[node name="NeedsDisplay" type="VBoxContainer" unique_id=1022940066]
+custom_minimum_size = Vector2(344, 66)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+script = ExtResource("1_mitur")
+
+[node name="HungerRow" type="HBoxContainer" parent="." unique_id=1307382696]
+custom_minimum_size = Vector2(344, 28)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="HungerRow"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_food")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HungerLabel" type="Label" parent="HungerRow" unique_id=1813007185]
+custom_minimum_size = Vector2(68, 28)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2pvr5")
+theme_override_font_sizes/font_size = 20
+text = "Food"
+vertical_alignment = 1
+
+[node name="HungerBar" type="ProgressBar" parent="HungerRow" unique_id=90351537]
+custom_minimum_size = Vector2(218, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_0n7lo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_njr62")
+step = 0.0
+value = 70.0
+show_percentage = false
+
+[node name="CleanlinessRow" type="HBoxContainer" parent="." unique_id=598990938]
+custom_minimum_size = Vector2(344, 28)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="CleanlinessRow"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_clean")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CleanlinessLabel" type="Label" parent="CleanlinessRow" unique_id=575434788]
+custom_minimum_size = Vector2(68, 28)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2pvr5")
+theme_override_font_sizes/font_size = 20
+text = "Clean"
+vertical_alignment = 1
+
+[node name="CleanlinessBar" type="ProgressBar" parent="CleanlinessRow" unique_id=1081696052]
+custom_minimum_size = Vector2(218, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+theme_override_styles/background = SubResource("StyleBoxFlat_4rg5s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8i1d2")
+step = 0.0
+value = 50.0
+show_percentage = false
