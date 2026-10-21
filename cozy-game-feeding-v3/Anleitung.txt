@@ -1,0 +1,30 @@
+CozyGame – Fuettern v3: Vier Klicks (Godot 4.7)
+
+INSTALLATION
+1. Godot schliessen und ZIP entpacken.
+2. Die Ordner scripts und scenes neben deine project.godot kopieren.
+3. Die vier gleichnamigen Script-Dateien ersetzen.
+4. Godot oeffnen und F5 druecken. Kein Installationsscript erforderlich.
+
+BEDIENUNG
+Der Napf startet leer: nur der Napf ist sichtbar.
+Futtersack auswaehlen und den Napf viermal anklicken:
+1. Klick: 25 Prozent, food_fill_low.png
+2. Klick: 50 Prozent, food_fill_medium.png
+3. Klick: 75 Prozent, food_fill_high.png
+4. Klick: 100 Prozent, food_fill_full.png; Cursor wechselt zur Maus.
+
+Bis zum vierten Klick bleibt der Futtersack ausgewaehlt. Solange du den Napf
+aktiv auffuellst, wartet die Katze mit dem Fressen. Wenn du eine kleinere Portion
+geben willst, waehle vorher die Maus oder druecke Escape: Die Portion wird dann
+fuer die Katze freigegeben. Auch ein Wechsel zur Schaufel beendet das Auffuellen.
+Klicks auf andere Gegenstaende fuellen nichts auf. Ein voller Napf wird nicht
+ueberfuellt. Bei Restmengen werden jeweils 25 Punkte hinzugefuegt, maximal 100.
+
+VORHANDENE EINSTELLUNGEN
+Die Hauptszene und Panel-Position/Groesse werden nicht ersetzt. Die Cursor
+entsprechen den zuletzt gemeinsam eingestellten Groessen: Maus 48, Futter 80,
+Schaufel 96 Pixel. Die neue Topbar-Farbe bleibt erhalten.
+Hunger bleibt wie in v2: nach Spielstart ca. vier Minuten bis Hunger, nach einem
+vollen Napf ca. zehn Minuten. Die Katze frisst die Portion vollstaendig auf.
+Eine eigene Fressanimation ist weiterhin noch nicht enthalten.
