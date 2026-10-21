@@ -1,0 +1,37 @@
+CozyGame – Hunger und Fressen v2 (Godot 4.7)
+
+INSTALLATION
+1. Godot schliessen und ZIP entpacken.
+2. Die enthaltenen Ordner scripts und scenes neben deine project.godot kopieren.
+3. Die drei gleichnamigen Script-Dateien ersetzen.
+4. Godot oeffnen und F5 druecken. Kein Installationsscript noetig.
+Die Hauptszene, Panel-Groesse und Position, Cursor-Groessen und Topbar bleiben erhalten.
+
+WAS SICH AENDERT
+- Hunger hat Vorrang vor zufaelligen Taetigkeiten. Die Katze laeuft direkt zum
+  erreichbaren, gefuellten Napf. Sitzt oder liegt sie, steht sie zuerst auf.
+  Die vorhandenen Aufstehanimationen werden dabei beendet.
+- Ein Napf wird waehrend der Mahlzeit vollstaendig aufgefressen. Auch wenn die
+  Saettigung schon 100 erreicht, wird die Mahlzeit bis zum leeren Napf beendet.
+- Am Ende sind Napfinhalt und gespeicherter Platzierungszustand 0; die separate
+  Futtergrafik wird ausgeblendet und es bleibt der leere Napf sichtbar.
+- Die Saettigung sinkt deutlich langsamer: nach Spielstart (70 Prozent) ca. vier
+  Minuten bis Hunger, nach einer vollen Mahlzeit (100 Prozent) ca. zehn Minuten.
+- Volle Portion: zehn Sekunden fressen, bis zu 60 Saettigungspunkte.
+  Halbvolle Portion: fuenf Sekunden, bis zu 30 Punkte, entsprechend kuerzer satt.
+- Bei leerem Napf sind normale Taetigkeiten weiterhin moeglich. Wird er aufgefuellt,
+  reagiert die hungrige Katze im naechsten Physikschritt, ohne Suchpause.
+- Das Lauftempo und die Animationsgrafiken werden nicht veraendert.
+
+TESTEN
+Futtersack anklicken und Napf auffuellen. Die Katze geht erst bei Hunger zum Napf.
+Zum schnellen Test laesst sich an der Katze unter 'Hunger und Fressen' der
+Wert 'Starting Satiety' voruebergehend auf 49 setzen. Standard ist 70.
+Am Ende der Mahlzeit muss das Futter komplett verschwunden sein. Food oben
+zeigt die Saettigung der Katze. Pause haelt Hunger und Futterverbrauch an.
+
+HINWEISE
+Falls du schon eigene Inspector-Werte fuer Hunger gespeichert hast, gelten diese
+weiterhin. Neuer Standard 'Satiety Loss Per Second': 0.0833333 (vorher 0.5).
+Eine Fresspose ist weiterhin noch nicht vorhanden: vorerst stehende Katze mit
+Text 'Frisst …'. Sauberkeit ist noch ein Testwert. Noch keine Spielstandspeicherung.
