@@ -1,0 +1,41 @@
+CozyGame – Futter und Katzenklo v4 (Godot 4.7)
+
+INSTALLATION
+Dieses Paket enthaelt die Futteraenderungen aus v3 bereits mit.
+Du brauchst v3 nicht zusaetzlich zu kopieren.
+1. Godot schliessen und ZIP entpacken.
+2. Die Datei litter_box.gd UND die Ordner scripts und scenes neben deine
+   project.godot kopieren. Gleichnamige Dateien ersetzen.
+3. Godot oeffnen und F5 druecken. Kein Installationsscript erforderlich.
+
+KATZENKLO
+100 Prozent sauber: litter_state_clean.png
+75 Prozent sauber: litter_state_light.png
+50 Prozent sauber: litter_state_medium.png
+25 Prozent sauber: litter_state_dirt.png
+0 Prozent sauber: litter_state_full.png
+Die saubere Streu bleibt sichtbar; nur der Verschmutzungszustand wechselt.
+
+Schaufel auswaehlen und das Klo anklicken. Jeder Klick erhoeht die Sauberkeit
+um 25 Prozentpunkte. Ausgehend von voellig verschmutzt braucht es vier Klicks:
+Voll -> stark verschmutzt -> mittel -> leicht verschmutzt -> sauber.
+Die Schaufel bleibt ausgewaehlt, bis das Klo ganz sauber ist. Dann wechselt
+sie zur Maus. Falsche Ziele und ein schon sauberes Klo werden nicht veraendert.
+Escape oder die Maus im Aktionspanel beenden die Werkzeugauswahl jederzeit.
+
+Das Klo startet weiterhin mit dem bisherigen Testwert von 40 Prozent Sauberkeit.
+Dafuer sind drei Klicks noetig. Vier Klicks gelten ausgehend von 0 Prozent.
+Die eigentliche selbststaendige Toilettenbenutzung der Katze ist noch nicht eingebaut.
+Die Clean-Anzeige oben ist weiterhin ein Testwert fuer die spaetere Katzensauberkeit.
+
+FUTTER AUS V3
+Napf startet leer. Vier Klicks mit dem Futtersack: 25, 50, 75, 100 Prozent.
+Erst beim vollen Napf zurueck zur Maus. Die Katze wartet waehrend des aktiven
+Auffuellens; bei vorzeitigem Wechsel zur Maus wird die kleinere Portion freigegeben.
+Beim Fressen: voll -> hoch -> mittel -> niedrig -> leer. Nur der Napf bleibt sichtbar.
+Hunger: ca. vier Minuten nach Spielstart, nach vollem Napf ca. zehn Minuten.
+Noch keine eigene Fressanimation und keine Spielstandspeicherung.
+
+UI
+Panelposition und Panelgroesse sowie Topbar werden nicht ersetzt. Cursor wie zuletzt
+vereinbart: Maus 48, Futtersack 80, Schaufel 96 Pixel.
