@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c5huxwgapqpc"]
+
+[ext_resource type="Script" uid="uid://d1semtdywfkfn" path="res://scripts/ui/hud/top_bar/top_bar.gd" id="1_0gu04"]
+[ext_resource type="PackedScene" uid="uid://cgtcgpgnvw2y8" path="res://scenes/UI/hud/components/level_display.tscn" id="2_1018s"]
+[ext_resource type="PackedScene" uid="uid://ba8edulo7g2nu" path="res://scenes/UI/hud/components/coin_display.tscn" id="3_tmcwy"]
+[ext_resource type="PackedScene" uid="uid://cwemxmknbk4h5" path="res://scenes/UI/hud/components/needs_display.tscn" id="4_a0tl5"]
+[ext_resource type="PackedScene" uid="uid://b8fe3imla15vs" path="res://scenes/UI/hud/components/pause_button.tscn" id="5_dfids"]
+
+[node name="TopBar" type="Control" unique_id=716303259]
+custom_minimum_size = Vector2(0, 104)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 83.0
+grow_horizontal = 2
+mouse_filter = 2
+script = ExtResource("1_0gu04")
+
+[node name="Background" type="ColorRect" parent="." unique_id=431426503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+color = Color(0.8509804, 0.7372549, 0.7294118, 1)
+
+[node name="SafeMargin" type="MarginContainer" parent="Background" unique_id=1668391024]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 10
+
+[node name="MainRow" type="HBoxContainer" parent="Background/SafeMargin" unique_id=247674139]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="LeftSlot" type="MarginContainer" parent="Background/SafeMargin/MainRow" unique_id=994527127]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_bottom = 10
+
+[node name="LevelDisplay" parent="Background/SafeMargin/MainRow/LeftSlot" unique_id=350035005 instance=ExtResource("2_1018s")]
+layout_mode = 2
+
+[node name="CenterSlot" type="MarginContainer" parent="Background/SafeMargin/MainRow" unique_id=1668471527]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="CoinDisplay" parent="Background/SafeMargin/MainRow/CenterSlot" unique_id=914231923 instance=ExtResource("3_tmcwy")]
+layout_mode = 2
+
+[node name="RightSlot" type="MarginContainer" parent="Background/SafeMargin/MainRow" unique_id=553110467]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightGroup" type="HBoxContainer" parent="Background/SafeMargin/MainRow/RightSlot" unique_id=699116890]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="NeedsDisplay" parent="Background/SafeMargin/MainRow/RightSlot/RightGroup" unique_id=1022940066 instance=ExtResource("4_a0tl5")]
+layout_mode = 2
+
+[node name="PauseButton" parent="Background/SafeMargin/MainRow/RightSlot/RightGroup" unique_id=1497336285 instance=ExtResource("5_dfids")]
+layout_mode = 2
