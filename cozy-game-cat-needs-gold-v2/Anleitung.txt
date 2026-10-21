@@ -1,0 +1,11 @@
+CozyGame – Zufriedenheit in Muenzgold v2
+
+Godot schliessen. ZIP ausserhalb des Spielordners entpacken.
+Den Ordner scenes neben project.godot kopieren, Ordner zusammenfuehren und die
+Datei cat_needs_panel.tscn ersetzen. Godot oeffnen und F5 starten.
+Dieses Update gehoert in den Projektordner, nicht in den Benutzerdatenordner.
+
+Nur zwei Farben geaendert: Die Zufriedenheitsfuellung nimmt den warmen Goldton
+#E8A848 der Muenzgrafik auf. Der leere Bereich ist dunkles Goldbraun #715022.
+Voraussetzung: Das bisherige Zuneigung-/Zufriedenheits-Update v1 ist installiert.
+Zuneigung, Spiellogik, gespeicherte Werte und andere Balken bleiben unveraendert.
