@@ -1,0 +1,34 @@
+CozyGame – Top Bar Balkenkontrast v4 (Godot 4.7)
+
+INSTALLATION
+1. Godot schliessen und ZIP entpacken.
+2. Die Ordner assets und scenes in deinen Spielordner neben project.godot kopieren.
+   Ordner zusammenfuehren und gleichnamige Dateien ersetzen.
+   Bitte die vorhandenen Ordner nicht vorher loeschen: sie enthalten dein Spiel.
+3. Godot oeffnen, neue Ressourcen importieren lassen und mit F5 starten.
+
+ENTHALTEN
+Rosa Hintergrund #D9BCBA bleibt deckend, mit ganz leichter Papierkoernung und
+schmaler Unterkante. Einheitliche warme braune Schrift, kompakterer Levelbereich,
+mehr Platz fuer Food/Clean sowie Futtersack- und Schaufelsymbol aus deiner Grafik.
+Dunklere leere Balken in der jeweiligen Farbfamilie, mit hellerer Fuellung.
+Das gilt fuer Food, Clean und XP. Gedecktes Blau fuer XP, warmes Braun wie der
+Futtersack fuer Food (#B87543), Schaufelblau fuer Clean (#4B8EAE). Einheitliche Nunito-Schrift statt gemischter Schriften.
+Die Vorschau zeigt das Spiel nach Fuettern und Reinigen; deine echten Werte
+werden durch dieses Gestaltungspaket nicht geaendert.
+
+DATEIEN
+scenes/UI/hud/top_bar/top_bar.tscn
+scenes/UI/hud/components/level_display.tscn
+scenes/UI/hud/components/coin_display.tscn
+scenes/UI/hud/components/needs_display.tscn
+scenes/UI/hud/components/pause_button.tscn
+assets/UI/themes/top_bar_theme.tres (neu)
+assets/UI/shaders/top_bar_paper.gdshader (neu)
+
+Das Paket setzt dein bestehendes Projekt mit Aktionspanel voraus. Schrift und
+Symbole werden aus den bereits vorhandenen assets/UI-Dateien geladen.
+Keine main.tscn oder project.godot enthalten: Shop- und Aktionspanelpositionen
+werden dadurch nicht ersetzt. Vorhandene Logikskripte, Spielstaende und der
+Offline-Verbrauch bleiben erhalten. Dieses Paket aendert nur die Top Bar.
+Die bisherigen Top-Bar-Szenen bei Bedarf vor dem Ersetzen separat sichern.
