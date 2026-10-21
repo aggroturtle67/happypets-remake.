@@ -1,0 +1,63 @@
+CozyGame – Zuneigung und Zufriedenheit v1 (Godot 4.7)
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb des Spielordners entpacken, zum Beispiel auf dem Desktop.
+3. Die Ordner scripts und scenes in deinen Spielordner neben project.godot kopieren.
+   Ordner zusammenfuehren, gleichnamige Dateien ersetzen. Vorhandene Ordner nicht
+   vorher loeschen; sie enthalten dein Spiel.
+4. Godot oeffnen, den Import abwarten und mit F5 normal starten.
+Dieses Paket gehoert in den PROJEKTORDNER, nicht in den Benutzerdatenordner.
+Es setzt den bisherigen Stand mit Top-Bar-Theme und Offline-Verbrauch voraus.
+Keine project.godot, main.tscn, Toilettenszene oder Grafikdateien werden ersetzt.
+Dein reparierter Spielstand und die vergroesserte Toilette bleiben erhalten.
+
+PERSOENLICHES KATZENPANEL
+Mit dem normalen Mauswerkzeug eine Katze anklicken. Rechts unter der Top Bar
+oeffnet sich ihr Panel: Zufriedenheit, Zuneigung, persoenliche Saettigung sowie
+die gemeinsame Raumsauberkeit als Einfluss. Bei einer anderen Katze wechselt es
+auf deren Werte. Schliessen ueber X, Escape oder einen Klick ins Leere.
+Ein anderes Werkzeug blendet es aus. Entfernte Katzen hinterlassen kein altes Panel.
+Der Rosaton, warme Schrift und Balken mit dunkleren leeren Bereichen passen zur
+Top Bar. Die Katzen werden vorerst als Katze1, Katze2 usw. unterschieden.
+Die oberen Food-/Clean-Anzeigen bleiben Raumwerte.
+
+STREICHELN
+Normalen Mauszeiger waehlen, linke Maustaste auf der Katze gedrueckt halten.
+Solange der Zeiger Kontakt zur Katze hat, steigt ihre Zuneigung um5 Punkte pro
+Sekunde, maximal100. Loslassen, Wegbewegen, Werkzeugwechsel oder Verlassen des
+Spielfensters beendet die Beruehrung. Bedienelemente blockieren das Streicheln.
+Ein einzelner Klick oeffnet das Panel, gibt aber keine feste Klick-Belohnung.
+Die Katze haelt beim Streicheln kurz an; danach setzt sie ihr Verhalten fort.
+Es gibt vorerst nur den steigenden Balken und einen Texthinweis im Panel.
+Neue Streichelanimationen, schwebende Herzen, XP- oder Geldbelohnungen kommen nicht
+mit diesem Update hinzu.
+
+ZUNEIGUNG ONLINE UND OFFLINE
+Jede Katze hat einen eigenen Wert zwischen0 und100. Ohne Streicheln sinkt er
+linear um55 Punkte in36 Stunden. Ausgehend von100 bleiben nach36 Stunden45.
+Bei niedrigerem Ausgangswert erreicht er entsprechend frueher0 und bleibt dort.
+Spielpause haelt Online-Aenderungen an. Offline wird die tatsaechlich vergangene
+Zeit verrechnet, mit derselben Rate. Kein fester Abzug beim Oeffnen, kein Reset.
+Zuneigung wird gemeinsam mit der Katze in der bisherigen Save-Datei gespeichert.
+Alte Spielstaende ohne Zuneigung erhalten bei der Umstellung100 Punkte; ihre Zeit
+vor diesem Update wird NICHT rueckwirkend auf den neuen Wert angerechnet.
+Bereits gespeicherte Zuneigung wird beim naechsten Laden regulaer weitergerechnet.
+
+ZUFRIEDENHEIT
+Zunaechst gleichgewichteter Durchschnitt aus persoenlicher Saettigung, persoenlicher
+Zuneigung und Sauberkeit des Raums. Beispiel75+45+60 ergibt60 Prozent.
+Kein eigener Verbrauch und kein separater gespeicherter Zufriedenheitswert.
+Die Anzeige reagiert direkt auf Fuettern, Streicheln und Reinigen. Noch keine
+Auswirkungen auf Verhalten, Belohnungen oder Animationen.
+Die Balken rechnen intern kontinuierlich; die Zahlen zeigen gerundete Prozentwerte.
+
+SOFORT AUSPROBIEREN OHNE DEN ECHTEN SPIELSTAND ZU AENDERN
+scenes/tests/cat_needs_test.tscn im Godot-Dateisystem oeffnen und F6 druecken.
+Der separate Testraum hat zwei Katzen mit45 und75 Zuneigung und oeffnet das erste
+Panel direkt. Dort kannst du den Anstieg sofort ausprobieren. Die Demonstrations-
+katzen bleiben zum UI-Test ruhig stehen. Der Testraum speichert absichtlich NICHT.
+F5 startet dein normales Spiel mit seinem bisherigen Spielstand und normaler KI.
+Im normalen Spiel kann eine Katze anfangs schon100 Zuneigung haben; dort wird der
+Balken beim Streicheln dann erst weiter steigen, wenn der Wert zuvor gesunken ist.
+Die Vorschau stammt aus dem separaten Testraum, nicht aus deinem echten Spielstand.
