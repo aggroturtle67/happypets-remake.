@@ -1,0 +1,28 @@
+CozyGame – Hunger und Fressen v1 (Godot 4.7)
+
+INSTALLATION
+1. Godot schliessen.
+2. ZIP entpacken.
+3. Die enthaltenen Ordner scripts und scenes neben deine project.godot kopieren.
+4. Die drei gleichnamigen Script-Dateien ersetzen.
+5. Godot oeffnen und F5 druecken. Kein Installationsscript noetig.
+
+TESTEN
+Die Katze startet mit 70 Prozent Saettigung. Diese sinkt um 0,5 Punkte pro Spielsekunde.
+Nach etwa 40 Sekunden (bei 50 Prozent) sucht sie selbst einen gefuellten Napf.
+Ist der Napf leer: Futtersack auswaehlen und auf den Napf klicken.
+Erst nach der Ankunft wird gefressen: Ein Futterpunkt ergibt einen Saettigungspunkt.
+Bei 90 Prozent oder leerem Napf hoert sie auf und kehrt zu ihren normalen Taetigkeiten zurueck.
+Die Food-Anzeige oben zeigt jetzt die Saettigung der Katze, nicht den Napfinhalt.
+100 bedeutet satt, 0 bedeutet hungrig. Pause stoppt den Ablauf.
+
+VORLAEUFIGER STAND
+Die vorhandene Katze besitzt noch keine Fressanimation. Beim Fressen steht sie
+am Napf und zeigt den Text 'Frisst …'. Es werden keine Animationsgrafiken ersetzt.
+Die Werte sind zum schnellen Testen eingestellt. Du findest sie im Inspector der
+Katze unter 'Hunger und Fressen'. Die Sauberkeitsanzeige bleibt vorerst ein Testwert.
+Spielstandspeicherung und Offline-Hunger sind noch nicht eingebaut; F5 startet neu.
+
+UMFANG
+Nur die drei Scripts werden ersetzt. Deine selbst angepasste Panel-Groesse,
+Position, Cursor-Groessen und die Topbar-Farbe werden nicht ueberschrieben.
