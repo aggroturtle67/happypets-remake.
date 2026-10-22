@@ -1,0 +1,54 @@
+extends Node
+
+signal coins_changed(new_value: float)
+signal xp_changed(current_value: float, required_value: int)
+signal level_changed(new_value: int)
+
+const CareRewards = preload("res://scripts/managers/care_rewards.gd")
+var coins: float = 100.0
+var current_xp: float = 0.0
+var level: int = 1
+var required_xp: int = 20
+var _progress: Dictionary = CareRewards.normalize({})
+
+func _ready() -> void:
+	# RoomManager loads and checkpoints offline rewards before this autoload is ready.
+	restore_progress(get_node("/root/RoomManager").get("progress_state"))
+
+func change_coins(amount: float) -> void:
+	CareRewards.add_coins(_progress, amount)
+	_sync_coins()
+
+func add_xp(amount: int) -> void:
+	CareRewards.add_xp(_progress, float(amount))
+	_sync_xp()
+
+func award_care(restored_points: float) -> void:
+	if not is_finite(restored_points) or restored_points <= 0.0:
+		return
+	CareRewards.add_points(_progress, restored_points)
+	_sync_coins()
+	_sync_xp()
+
+func export_progress() -> Dictionary:
+	_progress["coins"] = coins
+	return _progress.duplicate(true)
+
+func restore_progress(record: Variant) -> void:
+	_progress = CareRewards.normalize(record)
+	_sync_coins()
+	_sync_xp()
+
+func _sync_coins() -> void:
+	coins = float(_progress["coins"])
+	coins_changed.emit(coins)
+
+func _sync_xp() -> void:
+	var state: Dictionary = CareRewards.position(_progress)
+	var previous_level: int = level
+	level = int(state["level"])
+	current_xp = float(state["current_xp"])
+	required_xp = int(state["required_xp"])
+	if level != previous_level:
+		level_changed.emit(level)
+	xp_changed.emit(current_xp, required_xp)

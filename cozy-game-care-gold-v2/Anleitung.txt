@@ -1,0 +1,63 @@
+CozyGame – Pflege gibt XP und Gold v2 (Godot 4.7)
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb des Spielordners entpacken, zum Beispiel auf dem Desktop.
+3. Die entpackten Ordner scripts und scenes in deinen Spielordner neben
+   project.godot kopieren. Ordner zusammenfuehren und gleichnamige Dateien ersetzen.
+   Vorhandene Ordner NICHT vorher loeschen.
+4. Godot oeffnen, Import abwarten und mit F5 starten.
+Projektupdate, keine Datei fuer den Benutzerdatenordner. Keine Save-Datei ersetzen.
+Dieses Paket enthaelt auch den vorherigen XP-Stand. Voraussetzung bleibt dein
+Projekt mit Hunger, Offline-Verbrauch, Zuneigung und Streicheln per Mausbewegung.
+main.tscn, project.godot, Grafiken, Top-Bar-Szenen und Toilettenszene werden nicht
+ersetzt. Deine Positionen und Groessen bleiben erhalten.
+
+GOLD ZUSAETZLICH ZU XP
+Es gelten dieselben anteiligen Regeln: je 100 wirklich wiederhergestellte
+Bedarfspunkte gibt es 8 Gold UND 8 XP.
+- Fressen: Saettigung 0 auf 100 gibt 8 Gold; 50 auf 100 gibt 4 Gold.
+  Es zaehlt der gefressene Anteil, nicht das Auffuellen des Napfes.
+- Reinigen: 100 Schmutzpunkte entfernen gibt 8 Gold. Pro echten 25 Punkten
+  gibt es 2 Gold; wenn nur 10 Punkte fehlen, gibt es 0,80 Gold.
+- Streicheln: 100 Zuneigungspunkte wiederherstellen gibt 8 Gold.
+  Von 45 auf 100 sind es 4,40 Gold. Nur Mausbewegung mit gehaltener linker
+  Maustaste auf der Katze zaehlt. Stillhalten und volle Zuneigung geben nichts.
+Zufriedenheit selbst zahlt keinen zweiten Bonus fuer dieselbe Pflege aus.
+Passiver Verfall, leere Naepfe und wirkungslose Klicks erzeugen keine Belohnung.
+Die bisherige XP- und Level-Logik bleibt erhalten.
+
+BRUCHTEILE UND BESTEHENDES GOLD
+Kleine Goldbetraege werden intern vollstaendig gespeichert und aufsummiert,
+auch unterhalb eines Hundertstels. Keine Mindestbelohnung oder Aufrundung pro Klick.
+Die Topbar zeigt ganze Betraege ohne Nachkommastellen und Teilbetraege mit zwei
+Nachkommastellen, z.B. 100, 100,40 oder 1 000,05. Nur der Anzeigetext wird gerundet.
+Dein bisher gespeicherter Goldbetrag bleibt erhalten. Es gibt keine nachtraegliche
+Umwandlung alter XP in Gold. Spielstaende ohne gespeicherten Fortschritt behalten
+wie bisher den Startbetrag von 100 Gold.
+
+OFFLINE UND SPEICHERN
+Auch waehrend der Abwesenheit bringen echte Mahlzeiten anteilig Gold und XP.
+Nur vorhandenes Futter kann verbraucht werden. Online und offline gefressene
+Teile derselben Mahlzeit werden zusammen nur einmal angerechnet.
+Gold, XP, Katzenwerte, Futtermenge und Zeitstempel stehen im selben Spielstand.
+Beim Laden wird der verrechnete Stand gesichert; erneutes Laden erzeugt keine
+zweite Auszahlung. Speichern erfolgt wie bisher alle fuenf Sekunden, nach
+Reinigung/Auffuellen, am Ende einer Mahlzeit/Beruehrung und beim normalen Schliessen.
+Das Spielfenster normal ueber X schliessen. Erzwungenes Stoppen im Editor kann die
+letzten Sekunden verlieren; Fortschritt und Belohnung gehen dabei gemeinsam auf
+denselben gespeicherten Stand zurueck.
+Die bisherigen Regeln fuer Futter, Raumbegrenzungen, Toilettenverbrauch und
+Zuneigungsabbau bleiben bestehen. Ohne Server lassen sich gezielte Aenderungen
+lokaler Spielstandsdateien und der Systemzeit nicht vollstaendig verhindern.
+
+OPTIONALER TEST OHNE DEINEN SPIELSTAND
+scenes/tests/care_xp_test.tscn oeffnen und F6 druecken.
+Der Name bleibt erhalten. Dieser separate Testraum speichert nicht.
+Er startet mit 100 Gold, 0 XP, einer hungrigen Katze mit 0 Zuneigung, leerem Napf
+und schmutzigem Klo.
+- Viermal saeubern: 108 Gold und 8 XP.
+- Napf fuellen und die Katze ganz fressen lassen: 116 Gold und 16 XP.
+- Zuneigung mit Mausbewegung voll auffuellen: 124 Gold, insgesamt 24 XP
+  (Level 2 mit 4 von 30 XP), sofern inzwischen keine weitere Pflege dazukam.
+F5 startet danach wieder dein normales Spiel.
