@@ -1,0 +1,79 @@
+CozyGame – Pflege gibt XP v1 (Godot 4.7)
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb des Spielordners entpacken, zum Beispiel auf dem Desktop.
+3. Die Ordner scripts und scenes neben project.godot kopieren. Ordner zusammen-
+   fuehren und gleichnamige Dateien ersetzen. Keine ganzen vorhandenen Ordner
+   vorher loeschen, da darin weitere Spielressourcen liegen.
+4. Godot oeffnen, Import abwarten und mit F5 normal starten.
+Das ist ein PROJEKTUPDATE, keine Datei fuer den Benutzerdatenordner.
+Die neue Datei scripts/managers/care_rewards.gd muss unbedingt mitkopiert werden.
+Voraussetzung ist der bisherige Stand mit Zuneigung, Mausbewegungs-Streicheln und
+Offline-Verbrauch. Dein reparierter Spielstand bleibt erhalten. Keine Save-Datei ersetzen.
+Keine main.tscn, project.godot, Top-Bar-Szenen, Toilettenszene oder Grafikdateien
+werden ersetzt: Positionen, goldene Zufriedenheitsfarbe und Klo-Groesse bleiben erhalten.
+
+DREIMAL DIESELBE REGEL
+100 tatsaechlich wiederhergestellte Bedarfspunkte ergeben8XP.
+- Fressen: persoenliche Saettigung von0 auf100 gibt8XP, von50 auf100 gibt4XP.
+  Belohnt wird das echte Fressen, nicht das Auffuellen des Napfes.
+  Teilweise gefressene Mahlzeiten werden anteilig angerechnet.
+- Saeubern: Ein vollstaendig schmutziges Klo von0 auf100 reinigen gibt8XP.
+  Die vier25-Punkte-Schaufelklicks bringen je2XP.
+  Sind nur10 Punkte schmutzig, gibt der letzte Klick0.8XP, nicht pauschal2XP.
+- Streicheln:0 auf100 Zuneigung wiederherstellen gibt8XP.
+  Beispiel45 auf100 gibt4.4XP. Es zaehlt nur die tatsaechliche Zunahme durch
+  Mausbewegung bei gehaltener Maustaste auf der ausgewaehlten Katze.
+  Stillhalten, falsches Werkzeug und Streicheln bei100 Zuneigung geben keine XP.
+  Ist die Zufriedenheit bei100 Zuneigung noch niedriger, fehlen Futter oder
+  Sauberkeit. Weiteres Streicheln ersetzt diese Beduerfnisse nicht.
+Zufriedenheit selbst gibt keinen weiteren Bonus; sonst wuerde dieselbe Pflege
+ueber zwei Balken doppelt belohnt. Passiver Verbrauch erzeugt ebenfalls keine XP.
+
+XP-BRUCHTEILE UND LEVEL
+Bruchteile bleiben intern erhalten, ohne Aufrundung pro Klick. Viele winzige
+Aktionen geben zusammen genau die Belohnung fuer die wiederhergestellte Menge.
+Der XP-Balken zeigt auch Bruchteile. Darueberfahren zeigt den genauen Stand
+mit zwei Nachkommastellen; diese Anzeige rundet nur den Text, nicht die Belohnung.
+Die bisherigen Levelgrenzen bleiben:20XP fuer den ersten Aufstieg, dann30,40 usw.
+Ueberschuessige XP werden ins naechste Level uebernommen, auch bei mehreren Aufstiegen.
+Level, Gesamt-XP, Bruchteile und der Coinwert werden nun mit dem Spielstand erhalten.
+Alte Spielstaende ohne gespeicherte XP starten bei0XP; bereits vergangene, nicht
+aufgezeichnete Pflege wird nicht nachtraeglich erfunden. Tiere und Gegenstaende
+werden dabei nicht zurueckgesetzt.
+
+OFFLINE
+Katzen erhalten ihre anteiligen Fress-XP auch waehrend der Abwesenheit, wenn sie
+wirklich vorhandenes Futter verbrauchen. Keine XP fuer blosses Warten oder leere Naepfe.
+Eine teilweise online und teilweise offline gefressene Mahlzeit wird insgesamt
+nur fuer ihre tatsaechlich wiederhergestellte Saettigung belohnt.
+Bestaende, Katzenwerte, Zeitstempel und XP werden in derselben Datei gemeinsam
+gespeichert. Beim Laden wird der bereits verrechnete Offline-Stand vor Spielbeginn
+gesichert. Erneutes Laden belohnt denselben verzehrten Anteil nicht noch einmal.
+Die Grundregeln fuer Hunger, sechs Katzen/drei Naepfe, halbe Mahlzeiten, zwoelfminuetige
+Klo-Verschmutzung und36-Stunden-Zuneigungsverbrauch bleiben unveraendert.
+
+SPEICHERN
+Wie bisher automatisch alle fuenf Sekunden, nach Reinigung/Auffuellen, am Ende
+einer Mahlzeit oder Beruehrung und beim normalen Schliessen des Spielfensters.
+Bitte das Spielfenster zum Beenden normal ueber X schliessen. Erzwungenes Stoppen
+im Editor kann die letzten Sekunden verlieren; Bedarfswerte und XP fallen dann
+zusammen auf denselben gespeicherten Stand zurueck.
+
+SOFORT TESTEN OHNE ECHTEN SPIELSTAND
+scenes/tests/care_xp_test.tscn oeffnen und F6 druecken.
+Dieser separate Raum startet mit einer hungrigen Katze,0 Zuneigung, leerem Napf,
+schmutzigem Klo und0XP. Er speichert absichtlich NICHT.
+Vier Reinigungsklicks geben8XP. Napf auffuellen und Katze komplett fressen lassen
+gibt weitere8XP. Zuneigung durch Mausbewegung voll auffuellen gibt nochmals8XP.
+Zusammen sind das24XP: Level2 mit4 von30XP, sofern noch keine weiteren Pflegepunkte
+inzwischen durch erneuten Verbrauch angefallen sind. F5 startet dein normales Spiel.
+Die Vorschau zeigt den Testraum nach Reinigung und Fressen:16 von20XP.
+
+SCHUTZ VOR NORMALEN AUSNUTZUNGEN
+Keine festen Klick- oder Beruehrungsboni, keine Aufrundung pro Mini-Aktion, keine
+Belohnung fuer Nachfuellen oder wirkungslose Pflege, keine doppelte Mahlzeit nach
+Neuladen. Eine zurueckgestellte Systemzeit setzt den gespeicherten Zeitstand nicht
+zurueck. Bewusst veraenderte lokale Spielstandsdateien oder beliebig manipulierte
+Uhrzeiten lassen sich ohne serverseitige Pruefung jedoch nicht sicher ausschliessen.
