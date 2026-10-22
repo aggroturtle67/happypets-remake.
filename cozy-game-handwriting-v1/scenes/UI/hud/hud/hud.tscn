@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dg81v8he2v4bc"]
+
+[ext_resource type="Script" path="res://scripts/ui/ui_typography.gd" id="1_typography"]
+[ext_resource type="Theme" path="res://assets/UI/themes/top_bar_theme.tres" id="2_theme"]
+
+[node name="HUD" type="Control" unique_id=1908291843]
+script = ExtResource("1_typography")
+theme = ExtResource("2_theme")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="Control" parent="." unique_id=684168990]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NeedsPanel" type="Control" parent="." unique_id=1314125801]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

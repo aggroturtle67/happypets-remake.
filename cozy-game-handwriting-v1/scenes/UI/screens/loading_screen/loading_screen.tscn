@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://i6uqxmelmyr"]
+
+[ext_resource type="Theme" path="res://assets/UI/themes/top_bar_theme.tres" id="1_theme"]
+
+[node name="LoadingScreen" type="Control" unique_id=787120281]
+theme = ExtResource("1_theme")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundTest ColorRect" type="ColorRect" parent="." unique_id=1396240026]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="." unique_id=622513130]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LoadingLabel" type="Label" parent="." unique_id=356961087]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Lädt..."

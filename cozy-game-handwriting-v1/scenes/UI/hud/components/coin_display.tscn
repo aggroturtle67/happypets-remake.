@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ba8edulo7g2nu"]
+
+[ext_resource type="Script" uid="uid://bfkktjs0ggbsj" path="res://scripts/ui/hud/components/coin_display.gd" id="1_uam5k"]
+[ext_resource type="Texture2D" uid="uid://dk85xienh0drn" path="res://assets/UI/hud/top_bar/coin_icon.png" id="2_fbwlb"]
+[ext_resource type="FontFile" path="res://assets/UI/fonts/PatrickHand-Regular.ttf" id="3_fbwlb"]
+
+[node name="CoinDisplay" type="HBoxContainer" unique_id=914231923]
+custom_minimum_size = Vector2(166, 48)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+script = ExtResource("1_uam5k")
+
+[node name="CoinIcon" type="TextureRect" parent="." unique_id=1742698819]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_fbwlb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinAmount" type="Label" parent="." unique_id=509699173]
+custom_minimum_size = Vector2(104, 48)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fbwlb")
+theme_override_font_sizes/font_size = 28
+text = "100"
+vertical_alignment = 1

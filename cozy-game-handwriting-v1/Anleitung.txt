@@ -1,0 +1,27 @@
+CozyGame – Handschrift fuer alle Texte
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb deines Spielordners entpacken.
+3. Die enthaltenen Ordner assets, scenes und scripts in deinen Spielordner neben
+   project.godot kopieren. Ordner zusammenfuehren und gleichnamige Dateien ersetzen.
+   Vorhandene Ordner nicht vorher loeschen.
+4. Godot oeffnen, den Import der neuen Schrift abwarten und mit F5 starten.
+Wichtig: Alle drei Ordner kopieren. Szenen und Skript verweisen auf die neue
+Schriftdatei assets/UI/fonts/PatrickHand-Regular.ttf.
+Die Lizenz liegt als PatrickHand-OFL.txt im selben Ordner.
+
+SCHRIFT
+Die neue Schrift heisst Patrick Hand. Sie sieht handgeschrieben aus und
+unterstuetzt deutsche Umlaute, das scharfe S und Zahlen.
+Umgestellt sind Level, XP-Tooltip, Muenzen, Food/Clean, Katzenpanel samt
+Schliessen-Schaltflaeche und Hinweisen, Aktionsmeldungen, Katzentexte und Ladeanzeige.
+Das HUD besitzt ein gemeinsames Schrift-Theme; im laufenden Spiel gilt die
+Schrift auch als Standard fuer weitere UI-Elemente und dynamisch erzeugte Texte.
+Die vorhandenen Farben, Balken und die zuletzt vergroesserten Needs-Icons bleiben.
+
+Nur Darstellung: Spielstand und Bedarfssystem werden nicht veraendert.
+Die Muenzen bleiben bei Fressen10, Reinigen9 und Streicheln6 pro100 wirksam
+wiederhergestellte Punkte; XP bleiben bei8. Es bleiben ganze Coins und XP.
+Dieses Paket setzt deinen bisherigen Spielstand voraus und ersetzt weder
+project.godot noch die komplette Hauptszene. Keine Save-Datei ersetzen.
