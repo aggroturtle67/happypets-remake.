@@ -1,0 +1,15 @@
+CozyGame – Etwas groessere Food- und Clean-Icons
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb des Spielordners entpacken.
+3. Den enthaltenen Ordner scenes neben deine project.godot kopieren.
+   Ordner zusammenfuehren und die gleichnamige needs_display.tscn ersetzen.
+   Vorhandene Ordner nicht vorher loeschen.
+4. Godot oeffnen und mit F5 starten.
+
+Die Food- und Clean-Icons in der Topbar sind von 28 auf 34 Pixel vergroessert,
+also rund 21 Prozent. Der Container hat passend etwas mehr Platz; Beschriftungen,
+Balkenbreite, Farben und das Layout der restlichen Topbar bleiben erhalten.
+Nur scenes/UI/hud/components/needs_display.tscn wird ersetzt.
+Deine Spielstaende, Skripte und Belohnungen werden nicht veraendert.
