@@ -1,0 +1,55 @@
+CozyGame – Nur ganze Coins und XP v3 (Godot 4.7)
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb des Spielordners entpacken, zum Beispiel auf dem Desktop.
+3. Die entpackten Ordner scripts und scenes in deinen Spielordner neben
+   project.godot kopieren. Ordner zusammenfuehren und gleichnamige Dateien ersetzen.
+   Vorhandene Ordner NICHT vorher loeschen.
+4. Godot oeffnen, Import abwarten und mit F5 starten.
+Das ist ein Projektupdate, keine Datei fuer den Benutzerdatenordner.
+Keine Save-Datei ersetzen. Das Paket enthaelt den vorherigen XP- und Gold-Stand
+mit der neuen Vergabe in ganzen Punkten. Voraussetzung bleibt dein bisheriges
+Projekt mit Hunger, Offline-Verbrauch und Streicheln per Mausbewegung.
+Keine Grafiken, Szenengeometrien, project.godot oder Toilettenszene werden ersetzt.
+
+NUR GANZE BELOHNUNGEN
+Coins, Gesamt-XP und die XP des aktuellen Levels sind jetzt ganze Zahlen.
+Die Topbar und der XP-Tooltip zeigen ebenfalls nur ganze Zahlen, z.B. 108 Coins
+und 8 / 20 XP. Der XP-Balken bewegt sich nur fuer gutgeschriebene ganze XP.
+
+Die Vergabe bleibt proportional: Je 100 tatsaechlich wiederhergestellte
+Saettigungs-, Sauberkeits- oder Zuneigungspunkte geben 8 Coins UND 8 XP.
+- Saettigung von 50 auf 100: 4 Coins und 4 XP.
+- Saettigung von 0 auf 100: 8 Coins und 8 XP.
+- 25 Schmutzpunkte entfernen: 2 Coins und 2 XP.
+- 100 Zuneigungspunkte durch Mausbewegung wiederherstellen: 8 Coins und 8 XP.
+
+Kleine Pflegeanteile werden in separaten internen Restzaehlern gesammelt.
+Erst wenn ein ganzer Punkt zusammengekommen ist, wird er gutgeschrieben.
+Es gibt keine Bruchteil-Coins zum Ausgeben und keine Bruchteil-XP fuer Levelaufstiege.
+Es wird NICHT pro Klick aufgerundet. Viele winzige Aktionen geben zusammen nur
+dieselbe Belohnung wie eine grosse Aktion mit derselben tatsaechlichen Wirkung.
+Die Restzaehler bleiben beim Speichern, Neuladen und beim Offline-Verbrauch erhalten.
+Vorhandene Teilbetraege aus der letzten Version werden dorthin uebernommen,
+also nicht geloescht oder als aufgerundeter Bonus ausgezahlt.
+
+UNVERAENDERTE REGELN
+Nur tatsaechliches Fressen, Reinigen und wirksames Streicheln zaehlen.
+Napfauffuellen, Stillhalten, volle Zuneigung und wirkungslose Klicks geben nichts.
+Zufriedenheit gibt keine doppelte Belohnung fuer dieselbe Pflege.
+Offline-Mahlzeiten bringen ebenfalls ganze Coins und XP; noch nicht vollstaendige
+Punkte werden gesammelt. Bereits angerechnete Futteranteile zahlen bei erneutem
+Laden nicht noch einmal aus. Levelgrenzen und ueberschuessige ganze XP bleiben erhalten.
+Die Werte werden wie bisher zusammen mit Katzen, Gegenstaenden und Zeit gespeichert.
+Gezielt veraenderte lokale Save-Dateien oder manipulierte Systemzeiten lassen
+sich ohne Server nicht vollstaendig absichern.
+
+OPTIONALER TEST OHNE DEINEN SPIELSTAND
+scenes/tests/care_xp_test.tscn oeffnen und F6 druecken.
+Dieser separate Testraum speichert nicht. Er startet mit 100 Coins und 0 XP.
+Viermal saeubern: 108 Coins und 8 XP.
+Napf fuellen und Katze vollstaendig fressen lassen: 116 Coins und 16 XP.
+Zuneigung mit Mausbewegung voll auffuellen: 124 Coins und 24 Gesamt-XP,
+also Level 2 mit 4 von 30 XP, sofern inzwischen keine weitere Pflege dazukam.
+Mit F5 startet wieder dein normales Spiel.
