@@ -1,0 +1,52 @@
+CozyGame – Pflege-Muenzen 10 / 9 / 6 v4 (Godot 4.7)
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb des Spielordners entpacken.
+3. Die entpackten Ordner scripts und scenes neben deine project.godot kopieren.
+   Ordner zusammenfuehren, gleichnamige Dateien ersetzen. Vorhandene Ordner
+   NICHT vorher loeschen.
+4. Godot oeffnen, Import abwarten und mit F5 starten.
+Projektupdate fuer deinen bisherigen Stand mit Hunger, Offline-Verbrauch,
+Zuneigung und Mausbewegungs-Streicheln. Die vorherige Ganzzahl-Umstellung ist
+enthalten. Keine Save-Datei ersetzen; dein Fortschritt bleibt erhalten.
+Grafiken, UI-Positionen, Toilettenszene und project.godot werden nicht ersetzt.
+
+NEUE MUENZBELOHNUNGEN
+Pro 100 tatsaechlich wiederhergestellte Punkte:
+- Fressen / Saettigung: 10 Muenzen.
+- Saeubern / Sauberkeit: 9 Muenzen.
+- Streicheln / Zuneigung: 6 Muenzen.
+XP bleiben fuer alle drei Pflegearten bei 8 pro 100 wiederhergestellte Punkte.
+Fressen von 50 auf 100 Saettigung bringt also 5 Muenzen und 4 XP.
+Vier echte Reinigungsklicks mit je 25 Punkten bringen insgesamt 9 Muenzen und 8 XP.
+Streicheln von 0 auf 100 Zuneigung bringt 6 Muenzen und 8 XP.
+Es zaehlt die tatsaechliche Wirkung, nicht die Anzahl von Klicks.
+
+WEITERHIN NUR GANZE COINS UND XP
+Guthaben, XP, Anzeige und Gutschriften bleiben ganzzahlig. Kleine Pflegeanteile
+werden intern gesammelt und erst als vollstaendiger Punkt gutgeschrieben.
+Daher muss nicht jeder Reinigungsklick dieselbe ganze Muenzzahl ergeben; ueber
+eine vollstaendige Reinigung kommen exakt 9 Muenzen zusammen. Es wird nicht
+pro Aktion aufgerundet. Gespeicherte Restbetraege bleiben erhalten und werden
+beim Wechsel der Belohnungshoehe nicht neu bewertet.
+Keine nachtraegliche Neuberechnung vergangener Pflege und keine Aenderung
+deines bestehenden Guthabens beim blossen Einspielen des Updates.
+
+OFFLINE UND WIRKUNGSLOSE AKTIONEN
+Auch echtes Fressen waehrend deiner Abwesenheit nutzt die Futterrate von 10
+Muenzen pro 100 wiederhergestellte Saettigung. Teilmahlzeiten zaehlen anteilig.
+Gold, XP, Restzaehler und Bedarfswerte werden weiterhin gemeinsam gespeichert.
+Erneutes Laden zahlt denselben Futteranteil nicht nochmals aus.
+Napfauffuellen, Stillhalten beim Streicheln, volle Beduerfnisse und wirkungslose
+Klicks geben weiterhin nichts. Zufriedenheit zahlt keinen zweiten Bonus aus.
+Die bisherigen Hunger-, Toiletten-, Zuneigungs- und Levelregeln bleiben bestehen.
+
+OPTIONALER TEST OHNE DEINEN SPIELSTAND
+scenes/tests/care_xp_test.tscn oeffnen und F6 druecken. Der Testraum speichert nicht.
+Start: 100 Muenzen und 0 XP.
+Viermal vollstaendig saeubern: 109 Muenzen und 8 XP.
+Napf fuellen und Katze vollstaendig fressen lassen: 119 Muenzen und 16 XP.
+Zuneigung vollstaendig durch Mausbewegung auffuellen: 125 Muenzen und 24 Gesamt-XP,
+also Level 2 mit 4 von 30 XP, sofern inzwischen keine weitere Pflege dazu kam.
+F5 startet dein normales Spiel.
