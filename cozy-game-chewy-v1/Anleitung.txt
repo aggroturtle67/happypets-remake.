@@ -1,0 +1,23 @@
+CozyGame – Chewy von Google Fonts
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb deines Spielordners entpacken.
+3. Die enthaltenen Ordner assets, scenes und scripts neben deine project.godot
+   kopieren. Ordner zusammenfuehren und gleichnamige Dateien ersetzen.
+   Vorhandene Ordner nicht vorher loeschen.
+4. Godot oeffnen, Schriftimport abwarten und mit F5 starten.
+Wichtig: Alle drei Ordner kopieren. Die neue Schrift liegt unter
+assets/UI/fonts/Chewy-Regular.ttf. Die zugehoerige Apache-Lizenz liegt daneben.
+
+UMSTELLUNG
+Chewy ersetzt Patrick Hand in allen vorhandenen Textelementen: Topbar mit
+Level und Coins, Needs-Beschriftungen, Katzenpanel, Tooltips, Aktionsmeldungen,
+Katzentexte und Ladeanzeige. Der zentrale UI-Standard verwendet ebenfalls Chewy.
+Die Schrift stammt aus dem offiziellen Google-Fonts-Repository und enthaelt
+Umlaute, das scharfe S und Zahlen.
+
+Die letzten groesseren Needs-Icons bleiben erhalten. Dieses Paket veraendert
+keine Spielregeln, Save-Dateien oder project.godot. Deine bisherigen Coins,
+XP und Katzenwerte bleiben erhalten. Die alte Schriftdatei muss nicht geloescht
+werden; die Texte verweisen nach dem Update auf Chewy.

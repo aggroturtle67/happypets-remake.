@@ -1,0 +1,40 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/hud/action_panel/action_panel.gd" id="1_panel"]
+[ext_resource type="Texture2D" path="res://assets/UI/hud/action_panel/action_panel.png" id="2_texture"]
+[ext_resource type="FontFile" path="res://assets/UI/fonts/Chewy-Regular.ttf" id="3_font"]
+
+[node name="ActionPanel" type="Control"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 3
+offset_right = 320.0
+offset_bottom = 320.0
+script = ExtResource("1_panel")
+
+[node name="Graphic" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_texture")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Message" type="Label" parent="."]
+layout_mode = 0
+offset_left = -180.0
+offset_top = -34.0
+offset_right = -12.0
+offset_bottom = -4.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.29, 0.19, 0.16, 1)
+horizontal_alignment = 2
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
