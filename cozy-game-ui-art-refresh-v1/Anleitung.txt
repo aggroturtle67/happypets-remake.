@@ -1,0 +1,32 @@
+CozyGame – Neue UI-Grafiken
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb deines Spielordners entpacken.
+3. Den enthaltenen Ordner assets neben deine project.godot kopieren.
+   Ordner zusammenfuehren und die sieben gleichnamigen Grafikdateien ersetzen.
+   Vorhandene Ordner nicht vorher loeschen.
+4. Godot oeffnen, Neuimport der Bilder abwarten und mit F5 starten.
+
+AUSGETAUSCHTE GRAFIKEN
+assets/UI/hud/bottom_bar/shop_icon.png             Shopkorb
+assets/UI/hud/top_bar/coin_icon.png                Muenze
+assets/UI/hud/top_bar/pause_icon.PNG               Pause
+assets/UI/hud/action_panel/action_panel.png        Aktionspanel
+assets/UI/cursors/pointer.png                     Mauszeiger
+assets/UI/cursors/food_bag.png                    Futtersack
+assets/UI/cursors/scoop.png                       Schaufel
+
+Die Dateien entsprechen unveraendert deinen Original-PNGs aus der ZIP.
+Keine neue Bildgenerierung oder Veraenderung der Zeichnungen.
+Futtersack und Schaufel werden auch in der Topbar als Needs-Icons verwendet
+und erhalten dort automatisch die neue Grafik.
+Bisherige Dateinamen und Ordner werden beibehalten, damit die Szenen und
+Skripte sofort auf die neuen Bilder zugreifen. Die Cursor behalten ihre
+bisherigen maximalen Bildgroessen: Maus48, Futter80 und Schaufel96 Pixel.
+Aktionspanel-Klickbereiche und Werkzeugwechsel wurden mit den neuen Bildern
+geprueft. Die transparenten Bereiche des Panels blockieren keine Klicks.
+
+Dieses Paket ersetzt NUR sieben Bilddateien. Es ersetzt keine Szenen, Skripte,
+project.godot oder Save-Dateien. Positionen, Schriftwahl, Bedarfssystem,
+Muenzen und XP werden dadurch nicht veraendert.
