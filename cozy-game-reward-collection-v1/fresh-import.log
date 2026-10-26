@@ -1,0 +1,234 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (33 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | FoodBowl[39m[0m
+[   2% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   5% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   8% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  11% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  14% ] [90m[1mupdate_scripts_classes[22m | RoomCamera[39m[0m
+[  17% ] [90m[1mupdate_scripts_classes[22m | ItemData[39m[0m
+[  20% ] [90m[1mupdate_scripts_classes[22m | PlacedItemData[39m[0m
+[  23% ] [90m[1mupdate_scripts_classes[22m | RoomState[39m[0m
+[  26% ] [90m[1mupdate_scripts_classes[22m | InteractionController[39m[0m
+[  29% ] [90m[1mupdate_scripts_classes[22m | LitterBox[39m[0m
+[  32% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  35% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  38% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  41% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  44% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  47% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  52% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  55% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  58% ] [90m[1mupdate_scripts_classes[22m | ActionPanel[39m[0m
+[  61% ] [90m[1mupdate_scripts_classes[22m | CoinDisplay[39m[0m
+[  64% ] [90m[1mupdate_scripts_classes[22m | LevelDisplay[39m[0m
+[  67% ] [90m[1mupdate_scripts_classes[22m | NeedsDisplay[39m[0m
+[  70% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  73% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  76% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  79% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  82% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  85% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  88% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  91% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  94% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (57 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | cat_body_idle.png[39m[0m
+[   1% ] [90m[1m_update_scan_actions[22m | cat_body_lie_down_01.png[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | cat_body_lie_down_02.png[39m[0m
+[   5% ] [90m[1m_update_scan_actions[22m | cat_body_lie_down_03.png[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | cat_body_lie_idle.PNG[39m[0m
+[   8% ] [90m[1m_update_scan_actions[22m | cat_body_sit_01.png[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | cat_body_sit_02.png[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | cat_body_sit_idle.png[39m[0m
+[  13% ] [90m[1m_update_scan_actions[22m | cat_body_walk_01.png[39m[0m
+[  15% ] [90m[1m_update_scan_actions[22m | cat_body_walk_02.png[39m[0m
+[  17% ] [90m[1m_update_scan_actions[22m | cat_body_walk_03.png[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | cat_body_walk_04.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | cat_head_closed.png[39m[0m
+[  22% ] [90m[1m_update_scan_actions[22m | cat_head_half.png[39m[0m
+[  24% ] [90m[1m_update_scan_actions[22m | cat_head_open.png[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | cat_tail_idle.png[39m[0m
+[  27% ] [90m[1m_update_scan_actions[22m | cat_tail_lie_down_01.png[39m[0m
+[  29% ] [90m[1m_update_scan_actions[22m | cat_tail_lie_down_02.png[39m[0m
+[  31% ] [90m[1m_update_scan_actions[22m | cat_tail_lie_down_03.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | cat_tail_lie_idle.PNG[39m[0m
+[  34% ] [90m[1m_update_scan_actions[22m | cat_tail_sit_01.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | cat_tail_sit_02.png[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | cat_tail_sit_idle.png[39m[0m
+[  39% ] [90m[1m_update_scan_actions[22m | cat_tail_walk_01.png[39m[0m
+[  41% ] [90m[1m_update_scan_actions[22m | food_fill_full.png[39m[0m
+[  43% ] [90m[1m_update_scan_actions[22m | food_fill_high.png[39m[0m
+[  44% ] [90m[1m_update_scan_actions[22m | food_fill_low.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | food_fill_medium.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | food_bowl_basic_blue.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | food_bowl_basic_pink.png[39m[0m
+[  51% ] [90m[1m_update_scan_actions[22m | litter_state_clean.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | litter_state_dirt.png[39m[0m
+[  55% ] [90m[1m_update_scan_actions[22m | litter_state_full.png[39m[0m
+[  56% ] [90m[1m_update_scan_actions[22m | litter_state_light.png[39m[0m
+[  58% ] [90m[1m_update_scan_actions[22m | litter_state_medium.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | litter_box_basic.png[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | floor_001.PNG[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | wallpaper_001.PNG[39m[0m
+[  65% ] [90m[1m_update_scan_actions[22m | food_bag.png[39m[0m
+[  67% ] [90m[1m_update_scan_actions[22m | pointer.png[39m[0m
+[  68% ] [90m[1m_update_scan_actions[22m | scoop.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | Chewy-Regular.ttf[39m[0m
+[  72% ] [90m[1m_update_scan_actions[22m | Nunito-SemiBold.ttf[39m[0m
+[  74% ] [90m[1m_update_scan_actions[22m | PatrickHand-Regular.ttf[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | Spirax-Regular.ttf[39m[0m
+[  77% ] [90m[1m_update_scan_actions[22m | action_panel.png[39m[0m
+[  79% ] [90m[1m_update_scan_actions[22m | shop_icon.png[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | coin_icon.png[39m[0m
+[  82% ] [90m[1m_update_scan_actions[22m | heart_marker.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | pause_icon.PNG[39m[0m
+[  86% ] [90m[1m_update_scan_actions[22m | top_bar_background.PNG[39m[0m
+[  87% ] [90m[1m_update_scan_actions[22m | coin_double.png[39m[0m
+[  89% ] [90m[1m_update_scan_actions[22m | coin_particle.png[39m[0m
+[  91% ] [90m[1m_update_scan_actions[22m | coin_single.png[39m[0m
+[  93% ] [90m[1m_update_scan_actions[22m | xp_double.png[39m[0m
+[  94% ] [90m[1m_update_scan_actions[22m | xp_particle.png[39m[0m
+[  96% ] [90m[1m_update_scan_actions[22m | xp_single.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (57 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   1% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   3% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   5% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   6% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   8% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  10% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  13% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  15% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  17% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  18% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  20% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  22% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  24% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  27% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  29% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  31% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  32% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  34% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  36% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  37% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  39% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  41% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  43% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  44% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  46% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  48% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  51% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  53% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  55% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  56% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  58% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  60% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  62% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  63% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  65% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  67% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  68% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  70% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  72% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  74% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  77% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  79% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  81% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  82% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  84% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  86% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  87% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  89% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  91% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  93% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  94% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  96% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | Spirax-Regular.ttf[39m[0m
+[   1% ] [90m[1mreimport[22m | PatrickHand-Regular.ttf[39m[0m
+[   3% ] [90m[1mreimport[22m | Nunito-SemiBold.ttf[39m[0m
+[   5% ] [90m[1mreimport[22m | Chewy-Regular.ttf[39m[0m
+[   6% ] [90m[1mreimport[22m | Spirax-Regular.ttf[39m[0m
+[   8% ] [90m[1mreimport[22m | PatrickHand-Regular.ttf[39m[0m
+[  10% ] [90m[1mreimport[22m | Nunito-SemiBold.ttf[39m[0m
+[  12% ] [90m[1mreimport[22m | Chewy-Regular.ttf[39m[0m
+[  13% ] [90m[1mreimport[22m | food_bowl_basic_pink.png[39m[0m
+[  15% ] [90m[1mreimport[22m | litter_state_clean.png[39m[0m
+[  17% ] [90m[1mreimport[22m | litter_state_dirt.png[39m[0m
+[  18% ] [90m[1mreimport[22m | litter_state_full.png[39m[0m
+[  20% ] [90m[1mreimport[22m | litter_state_light.png[39m[0m
+[  22% ] [90m[1mreimport[22m | litter_state_medium.png[39m[0m
+[  24% ] [90m[1mreimport[22m | litter_box_basic.png[39m[0m
+[  25% ] [90m[1mreimport[22m | floor_001.PNG[39m[0m
+[  27% ] [90m[1mreimport[22m | wallpaper_001.PNG[39m[0m
+[  29% ] [90m[1mreimport[22m | food_bag.png[39m[0m
+[  31% ] [90m[1mreimport[22m | pointer.png[39m[0m
+[  32% ] [90m[1mreimport[22m | scoop.png[39m[0m
+[  34% ] [90m[1mreimport[22m | action_panel.png[39m[0m
+[  36% ] [90m[1mreimport[22m | shop_icon.png[39m[0m
+[  37% ] [90m[1mreimport[22m | coin_icon.png[39m[0m
+[  39% ] [90m[1mreimport[22m | heart_marker.png[39m[0m
+[  41% ] [90m[1mreimport[22m | pause_icon.PNG[39m[0m
+[  43% ] [90m[1mreimport[22m | top_bar_background.PNG[39m[0m
+[  44% ] [90m[1mreimport[22m | coin_double.png[39m[0m
+[  46% ] [90m[1mreimport[22m | coin_particle.png[39m[0m
+[  48% ] [90m[1mreimport[22m | coin_single.png[39m[0m
+[  50% ] [90m[1mreimport[22m | xp_double.png[39m[0m
+[  51% ] [90m[1mreimport[22m | xp_particle.png[39m[0m
+[  53% ] [90m[1mreimport[22m | xp_single.png[39m[0m
+[  55% ] [90m[1mreimport[22m | cat_body_idle.png[39m[0m
+[  56% ] [90m[1mreimport[22m | cat_body_lie_down_01.png[39m[0m
+[  58% ] [90m[1mreimport[22m | cat_body_lie_down_02.png[39m[0m
+[  60% ] [90m[1mreimport[22m | cat_body_lie_down_03.png[39m[0m
+[  62% ] [90m[1mreimport[22m | cat_body_lie_idle.PNG[39m[0m
+[  63% ] [90m[1mreimport[22m | cat_body_sit_01.png[39m[0m
+[  65% ] [90m[1mreimport[22m | cat_body_sit_02.png[39m[0m
+[  67% ] [90m[1mreimport[22m | cat_body_sit_idle.png[39m[0m
+[  68% ] [90m[1mreimport[22m | cat_body_walk_01.png[39m[0m
+[  70% ] [90m[1mreimport[22m | cat_body_walk_02.png[39m[0m
+[  72% ] [90m[1mreimport[22m | cat_body_walk_03.png[39m[0m
+[  74% ] [90m[1mreimport[22m | cat_body_walk_04.png[39m[0m
+[  75% ] [90m[1mreimport[22m | cat_head_closed.png[39m[0m
+[  77% ] [90m[1mreimport[22m | cat_head_half.png[39m[0m
+[  79% ] [90m[1mreimport[22m | cat_head_open.png[39m[0m
+[  81% ] [90m[1mreimport[22m | cat_tail_idle.png[39m[0m
+[  82% ] [90m[1mreimport[22m | cat_tail_lie_down_01.png[39m[0m
+[  84% ] [90m[1mreimport[22m | cat_tail_lie_down_02.png[39m[0m
+[  86% ] [90m[1mreimport[22m | cat_tail_lie_down_03.png[39m[0m
+[  87% ] [90m[1mreimport[22m | cat_tail_lie_idle.PNG[39m[0m
+[  89% ] [90m[1mreimport[22m | cat_tail_sit_01.png[39m[0m
+[  91% ] [90m[1mreimport[22m | cat_tail_sit_02.png[39m[0m
+[  93% ] [90m[1mreimport[22m | cat_tail_sit_idle.png[39m[0m
+[  94% ] [90m[1mreimport[22m | cat_tail_walk_01.png[39m[0m
+[  96% ] [90m[1mreimport[22m | food_fill_full.png[39m[0m
+[  98% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (57 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
