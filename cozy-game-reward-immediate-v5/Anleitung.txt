@@ -1,0 +1,25 @@
+Belohnungssymbole sofort anzeigen – v5
+
+Godot schliessen. Die Ordner assets, data, scripts und tests aus dieser ZIP
+in deinen Spielordner neben project.godot kopieren. Ordner zusammenfuehren und
+gleichnamige Dateien ersetzen. Vorhandene Ordner nicht vorher loeschen.
+Godot wieder oeffnen. Voraussetzung: Belohnungssystem v3 oder v4.
+
+Aenderungen:
+- Beim Reinigungsklick erscheinen die bereits verdienten Symbole direkt.
+- Beim Fressen und Streicheln erscheinen die Symbole bei der jeweiligen echten
+  Gutschrift. Napf auffuellen bleibt ohne Belohnung.
+- Keine vier Sekunden Wartezeit fuer einzelne Restpunkte. Kein zeitlich
+  gestaffeltes Ausgeben und kein zufaelliger Start-Delay mehr.
+- Fuer Doppelsymbole wird ein passendes sichtbares Einzelsymbol beim naechsten
+  verdienten Punkt direkt in ein Doppelsymbol umgewandelt. Die ersten beiden
+  Einzel eines Aktionsstroms bleiben Einzel. Bereits eingesammelte oder gerade
+  eingesammelte Symbole werden dabei nie veraendert.
+- Ist der nahe Bereich voll, duerfen Symbole dichter und teilweise ueberlappend
+  landen. Es werden keine weiteren Symbole fuer spaetere freie Plaetze aufgehoben.
+- Fuer ausserhalb des sichtbaren Bereichs liegende Quellen wird kein spaeterer
+  Symbolregen aufgespart. Die interne Gutschrift bleibt sofort gespeichert.
+- Neueste Doppelstern-Grafik und v4-Einstellungen (48/72 Partikel, Radius170,
+  Doppelsternfaktor1.3) sind enthalten. Keine Videovorschau.
+
+Die Gutschrift- und Speicherlogik wurde nicht geaendert.
