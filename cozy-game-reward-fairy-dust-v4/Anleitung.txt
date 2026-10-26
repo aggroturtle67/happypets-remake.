@@ -1,0 +1,16 @@
+Feenstaub und Symbolgroesse v4
+
+Godot schliessen. Die enthaltenen Ordner assets, data und scripts in deinen
+Spielordner neben project.godot kopieren, zusammenfuehren und gleichnamige
+Dateien ersetzen. Vorhandene Ordner nicht vorher loeschen. Godot wieder oeffnen.
+Voraussetzung: Belohnungssystem v3.
+
+Aenderungen:
+- 48 statt32 Partikel pro Einzel, 72 statt48 pro Doppelsymbol (+50 Prozent).
+- Doppelstern-Skalierung auf die zuletzt gelieferte Grafik abgestimmt:
+  1.30 statt1.45, damit jeder Stern aehnlich gross wie ein Einzelstern wirkt.
+- Maximale Landeentfernung170 statt180 logische Pixel, Wunschweite85 statt90,
+  Streuung22 statt25. Abstaende und Originalgrafiken ansonsten unveraendert.
+- Enthalten ist auch deine zuletzt gelieferte Doppelstern-PNG unveraendert.
+
+Einstellungen: data/UI/reward_effects.tres im Godot-Inspektor.
