@@ -1,0 +1,3 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ACTION_PANEL_INTERACTIONS_OK {"all_fill_textures":true,"all_litter_textures_both_directions":true,"auto_reset":true,"camera_independent":true,"cursor_sizes_preserved":true,"empty_start":true,"four_click_cleaning":true,"four_click_fill":true,"full_targets_keep_tool":true,"layouts":[{"panel_end":[1920.0,1080.0],"window":[1920,1080]},{"panel_end":[1920.0,1080.0],"window":[1280,720]},{"panel_end":[1920.0,1440.0],"window":[800,600]},{"panel_end":[1920.0,1080.0],"window":[2560,1440]}],"petting_only_in_pointer_mode":true,"refill_reservation":true,"wrong_targets_blocked":true}

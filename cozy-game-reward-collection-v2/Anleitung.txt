@@ -1,0 +1,92 @@
+CozyGame – Pflegebelohnungen v2: Originalfarben, groessere Doppelsymbole und Feenstaub (Godot 4.7)
+
+INSTALLATION
+1. Spielfenster und Godot schliessen.
+2. ZIP ausserhalb deines Spielordners entpacken.
+3. Die Ordner assets, data, scenes, scripts und tests aus der ZIP in deinen
+   Spielordner neben project.godot kopieren. Ordner zusammenfuehren und
+   gleichnamige Dateien ersetzen. Vorhandene Ordner NICHT vorher loeschen.
+4. Godot oeffnen, den Import abwarten und mit F5 normal starten.
+Bitte alle fuenf Ordner kopieren: Die neuen Szenen verweisen auf die neuen
+Skripte, Einstellungen und Grafiken. project.godot und deine Save-Datei werden
+nicht ersetzt. Voraussetzung ist dein bisheriger Projektstand mit den letzten
+Pflege-, Offline- und Ganzzahl-Belohnungen.
+
+AUSLOESER UND GUTSCHRIFT
+- Erfolgreiches Reinigen: Symbole springen aus dem Katzenklo.
+- Tatsaechliches Fressen: Symbole springen aus dem Napf, NICHT beim Auffuellen.
+- Wirksames Streicheln per Mausbewegung: Symbole springen aus der Katze.
+Andere Coin-/XP-Quellen, Levelaufstiege und Laden eines Spielstandes erzeugen
+keine neuen Symbole. Die bestehenden Pflegebedingungen bleiben unveraendert.
+Die Werte bleiben pro100 wirklich wiederhergestellte Bedarfspunkte:
+Fressen10 Coins, Reinigen9 Coins, Streicheln6 Coins; alle drei8XP.
+Ganze Punkte werden intern SOFORT vergeben und gemeinsam mit Bedarf und
+Mahlzeitenfortschritt gespeichert. Die Animation ist nur ein visueller Beleg.
+Beim Einsammeln gibt es KEINE zweite Gutschrift.
+
+EINZEL- UND DOPPELSYMBOLE
+Einzelsymbol=1, Doppelsymbol=2. Die zufaellige Kombination entspricht exakt den
+neu gutgeschriebenen ganzen Punkten. Ab3 Punkten werden beide Varianten gemischt.
+Bei1 erscheint nur ein Einzelsymbol. Bei2 variiert ein Doppel gegen zwei Einzel.
+Kleine noch nicht vollstaendige Punkte werden wie bisher intern gesammelt;
+sie erzeugen erst bei der echten ganzzahligen Gutschrift ein Symbol.
+Die Symbole erscheinen bereits WAEHREND einer Aktion, sobald die ersten ganzen
+Punkte tatsaechlich gutgeschrieben wurden. Es wird nicht mehr auf das Ende einer
+Mahlzeit oder einer Streichelphase gewartet. Nachfuellen bleibt ohne Belohnung.
+Bei weniger als einem ganzen Punkt bleibt wie bisher nur der interne Restzaehler;
+es werden keine noch nicht verdienten Symbolwerte vorweggenommen.
+Es gibt kein kuenstliches Limit fuer den dargestellten Gesamtwert. Wenn der
+sichtbare Boden voll ist, warten weitere Symbole auf freie Plaetze.
+
+ANIMATION UND EINSAMMELN
+Die Symbole springen in kleinen Boegen heraus, landen mit einem Nachfedern
+locker verteilt auf der sichtbaren Bodenflaeche neben dem Aktionsobjekt und
+bleiben liegen. Sie folgen beim Kameraschwenk der Spielwelt. HUD und wichtige
+Schaltflaechen werden bei der Platzierung ausgespart.
+Nach der Landung leuchten sie gelegentlich ganz leicht auf.
+Die Symbolfarben entsprechen wieder der Originalgrafik: Eine doppelte
+Farbmultiplikation im Shader wurde entfernt. Beide Shader sind unbeleuchtet.
+Doppelmuenzen werden um18 Prozent, Doppelsterne um45 Prozent vergroessert,
+damit ihre einzelnen Bestandteile aehnlich gross wirken wie die Einzelsymbole.
+Die Platzierung beruecksichtigt die groesseren Gesamtbilder automatisch.
+Die Gold-/Blaupartikel variieren nun deutlich in Groesse und Helligkeit:
+viele sehr kleine Koernchen, einzelne groessere sowie helle und dunkle Toene
+mit sanftem Funkeln. Deine vorhandenen Partikel-PNGs werden weiterverwendet.
+Maus in die Naehe bewegen reicht: kein pixelgenaues Anklicken erforderlich.
+Das Symbol zieht zur Maus, huepft und loest sich vollstaendig auf. Deine goldenen
+bzw. blauen Partikel fliegen in sanften Kurven zur Coin-Anzeige bzw. XP-Leiste.
+Nur dort erscheinen dezente Pulse und eine gemeinsame Plus-Zahl pro Waehrung.
+Die Plus-Zahlen zaehlen nur eingesammelte Symbolwerte. Nach1.5 Sekunden ohne
+weitere Ankunft blenden sie sanft aus. Eine Ankunft waehrend des Ausblendens
+setzt die laufende Summe fort.
+
+SZENENWECHSEL UND OFFLINE
+Liegende Symbole und Plus-Zahlen sind nur temporaere Darstellung. Beim Verlassen
+der Szene werden sie entfernt. Ihr Wert war bereits gespeichert und bleibt im
+Guthaben; sie werden beim erneuten Laden nicht ein zweites Mal ausgespielt.
+Die vorhandene Offline-Berechnung bleibt erhalten. Offline verdiente Werte sind
+beim Laden schon verbucht, es gibt dafuer keinen nachtraeglichen Symbolregen.
+
+SOFORT TESTEN
+scenes/tests/reward_collection_test.tscn oeffnen und F6 druecken.
+Dieser Testraum startet hungrig, mit leerem Napf, schmutzigem Klo und0 Zuneigung.
+Testaktionen werden nicht in deinen normalen Spielstand gespeichert.
+- Viermal saeubern:9 Coins/8XP -> Symbole am Klo.
+- Napf auffuellen:keine Belohnung. Katze wirklich fressen lassen:10 Coins/8XP
+  bei Saettigung von0 auf100 -> Symbole am Napf.
+- Katze anklicken, linke Taste halten und Maus hin und her bewegen:
+  bei100 wirksam wiederhergestellten Zuneigungspunkten6 Coins/8XP aus der Katze.
+- Mit der Maus nahe an liegende Symbole gehen und Partikelflug/Plus-Zahlen ansehen.
+F5 startet wieder dein normales Spiel.
+
+WERTE EINFACH ANPASSEN
+In Godots Dateisystem data/UI/reward_effects.tres anklicken. Im Inspektor sind
+Flugtempo, Flugweite, Streuung, Sprunghoehe, Groessenvariation, Schimmer,
+Magnetradius, Einsammeldauer, Partikelanzahl/-tempo, UI-Puls und Plus-Dauer
+in Gruppen einstellbar. Aenderungen speichern und das Spiel neu starten.
+Weitere technische Hinweise und Testaufrufe stehen in Technik.md.
+
+GRAFIKEN
+Es werden ausschliesslich deine sechs Original-PNGs unter assets/UI/rewards
+verwendet: zwei Coinbilder, zwei Sternbilder sowie deine beiden Partikelbilder.
+Die Dateien, Farben, Perspektiven und Proportionen wurden nicht umgezeichnet.

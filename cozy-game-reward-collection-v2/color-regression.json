@@ -1,0 +1,62 @@
+{
+  "coin": {
+    "max_channel_error": 0,
+    "mean_channel_error": 0.0
+  },
+  "star": {
+    "max_channel_error": 0,
+    "mean_channel_error": 0.0
+  },
+  "gold_dust": {
+    "max_channel_error": 0,
+    "mean_channel_error": 0.0
+  },
+  "blue_dust": {
+    "max_channel_error": 0,
+    "mean_channel_error": 0.0
+  },
+  "gold_range": {
+    "dark": [
+      150,
+      97,
+      37
+    ],
+    "normal": [
+      231,
+      149,
+      57
+    ],
+    "bright": [
+      244,
+      207,
+      166
+    ],
+    "original": [
+      231,
+      149,
+      57
+    ]
+  },
+  "blue_range": {
+    "dark": [
+      30,
+      64,
+      92
+    ],
+    "normal": [
+      46,
+      99,
+      141
+    ],
+    "bright": [
+      161,
+      185,
+      204
+    ],
+    "original": [
+      46,
+      99,
+      141
+    ]
+  }
+}
