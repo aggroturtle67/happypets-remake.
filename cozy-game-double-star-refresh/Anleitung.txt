@@ -1,0 +1,8 @@
+Doppelstern-Grafik austauschen
+
+Godot schliessen. Den Ordner assets aus dieser ZIP in deinen Spielordner neben
+project.godot kopieren. Ordner zusammenfuehren und xp_double.png ersetzen.
+Vorhandene Ordner nicht loeschen. Godot wieder oeffnen und den Import abwarten.
+
+Enthalten ist deine neue Originalgrafik unter assets/UI/rewards/xp_double.png.
+Voraussetzung: das bereits eingebaute Belohnungssystem.
