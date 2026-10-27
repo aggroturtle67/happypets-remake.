@@ -1,0 +1,20 @@
+Topbar ohne durchgehenden Hintergrund
+
+INSTALLATION
+Godot schliessen. Die Ordner scenes, scripts und tests aus dieser ZIP in deinen
+Spielordner neben project.godot kopieren. Ordner zusammenfuehren und gleichnamige
+Dateien ersetzen. Vorhandene Ordner nicht vorher loeschen. Godot wieder oeffnen.
+Voraussetzung: dein bisheriger Projektstand mit Belohnungssystem v5.
+
+AENDERUNGEN
+- Durchgehende Hintergrundflaeche samt Papier-Shader, oberer Lichtkante und
+  unterer Randlinie aus der Topbar entfernt. Einzelne Anzeigen bleiben sichtbar.
+- Links bleiben Level und XP. Rechts: Raumzustaende, Coins, Pause.
+- Der Coin-Anzeigepfad ist sowohl im Topbar-Skript als auch im
+  Belohnungspresenter aktualisiert. Partikel und Puls folgen der neuen Position.
+- Die temporaere Coin-Pluszahl steht unter der Coin-Anzeige, damit sie den
+  benachbarten Pausebutton nicht ueberdeckt.
+- Schrift, Farben der Balken, Grafiken und Spielstand bleiben erhalten.
+
+Die bestehende Belohnungs-Testsuite laeuft erfolgreich mit dem neuen Coin-Ziel.
+Keine Videovorschau erstellt.
