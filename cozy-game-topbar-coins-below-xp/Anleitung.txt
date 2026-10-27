@@ -1,0 +1,11 @@
+Coin-Anzeige unter der XP-Leiste
+
+Godot schliessen. Die enthaltenen Ordner scenes, scripts und tests in deinen
+Spielordner neben project.godot kopieren. Ordner zusammenfuehren und gleichnamige
+Dateien ersetzen. Vorhandene Ordner nicht vorher loeschen. Godot wieder oeffnen.
+Voraussetzung: bisheriger Projektstand mit Belohnungssystem v5.
+
+Links: Level und XP-Leiste, darunter linksbuendig die Coin-Anzeige.
+Rechts: Raumzustaende und Pausebutton. Durchgehender Hintergrund bleibt entfernt.
+Coin-Partikel und Puls folgen dem neuen Coin-Ziel; Pluszahl erscheint darunter.
+Keine Videovorschau.
