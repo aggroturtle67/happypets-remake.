@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://du3mhkb4xpes4"]
+
+[ext_resource type="PackedScene" uid="uid://hmbkphrd6buh" path="res://scenes/rooms/pet_rooms/main_room/main_room.tscn" id="1_881o0"]
+[ext_resource type="PackedScene" uid="uid://dg81v8he2v4bc" path="res://scenes/UI/hud/hud/hud.tscn" id="2_i5wdp"]
+[ext_resource type="PackedScene" uid="uid://c5huxwgapqpc" path="res://scenes/UI/hud/top_bar/top_bar.tscn" id="3_i5wdp"]
+[ext_resource type="PackedScene" uid="uid://i6uqxmelmyr" path="res://scenes/UI/screens/loading_screen/loading_screen.tscn" id="3_qlydp"]
+
+[ext_resource type="PackedScene" path="res://scenes/UI/hud/components/shop_button.tscn" id="5_shop_button"]
+[ext_resource type="PackedScene" path="res://scenes/UI/hud/action_panel/action_panel.tscn" id="6_actions"]
+[ext_resource type="Script" path="res://scripts/interactions/interaction_controller.gd" id="7_interactions"]
+
+[node name="main" type="Node2D" unique_id=188764333]
+
+[node name="MainRoom" parent="." unique_id=1964562291 instance=ExtResource("1_881o0")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=635874850]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1908291843 instance=ExtResource("2_i5wdp")]
+
+[node name="TopBar2" parent="CanvasLayer/HUD" unique_id=716303259 instance=ExtResource("3_i5wdp")]
+layout_mode = 1
+
+[node name="ShopButton" parent="CanvasLayer/HUD" instance=ExtResource("5_shop_button")]
+layout_mode = 1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -224.0
+offset_right = 224.0
+offset_bottom = -32.0
+grow_vertical = 0
+
+[node name="LoadingScreen" parent="CanvasLayer" unique_id=787120281 instance=ExtResource("3_qlydp")]
+visible = false
+
+[node name="ActionPanel" parent="CanvasLayer/HUD" instance=ExtResource("6_actions")]
+layout_mode = 1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="InteractionController" type="Node" parent="."]
+script = ExtResource("7_interactions")

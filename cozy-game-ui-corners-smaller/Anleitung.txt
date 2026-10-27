@@ -1,0 +1,11 @@
+Aktionsrad und Shop-Button kleiner
+
+Godot schliessen. Den enthaltenen Ordner scenes in deinen Spielordner neben
+project.godot kopieren, zusammenfuehren und gleichnamige Dateien ersetzen.
+Vorhandene Ordner nicht vorher loeschen. Godot wieder oeffnen.
+
+Aktionsrad:256 statt320 logische Pixel (20 Prozent kleiner), weiterhin
+buendig in der unteren rechten Ecke. Die Sektoren skalieren automatisch mit.
+Shop-Button:192 statt232 logische Pixel. Seine Grafik ist160 statt200 Pixel
+gross (20 Prozent kleiner). Abstand32 zum linken und unteren Rand bleibt.
+Cursor-Groessen und Topbar bleiben erhalten. Keine Videovorschau erstellt.
