@@ -1,0 +1,1 @@
+Godot schliessen. Den Ordner scenes in den Spielordner neben project.godot kopieren, zusammenfuehren und gleichnamige Datei ersetzen. Godot wieder oeffnen. Shop-Abstand links/unten jetzt8 statt32 Pixel. Groesse unveraendert.
